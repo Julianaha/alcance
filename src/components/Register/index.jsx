@@ -23,7 +23,7 @@ function Register() {
 
   return (
     <div className={styles.container}>
-      <form>
+      <form className={styles.form}>
         <div className={styles.form_title}>
           <h1>Inscreva-se</h1>
         </div>
@@ -144,10 +144,16 @@ function Register() {
                   Selecione um curso
                 </option>
                 <option defaultValue="course1">Informática básica</option>
-                <option defaultValue="course2">Inglês básico ao avançado</option>
+                <option defaultValue="course2">
+                  Inglês básico ao avançado
+                </option>
                 <option defaultValue="course3">Excel básico ao avançado</option>
-                <option defaultValue="course4">Introdução a Metodologia Àgil</option>
-                <option defaultValue="course5">Introdução a Lógica de Programação</option>
+                <option defaultValue="course4">
+                  Introdução a Metodologia Àgil
+                </option>
+                <option defaultValue="course5">
+                  Introdução a Lógica de Programação
+                </option>
               </select>
             </p>
             <p>*Item Obrigatório</p>
@@ -162,6 +168,7 @@ function Register() {
               </label>
             </div>
             <button
+              className={styles.button}
               onClick={(e) => {
                 e.preventDefault();
                 submitForme(nome, email, telefone, estado, unidade, curso);
