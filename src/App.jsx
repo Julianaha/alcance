@@ -2,13 +2,10 @@ import Register from "./components/Register";
 import React, { useState, useEffect } from "react";
 import { Card } from "./components/card/Card";
 import { apiAlcance } from "./service/Service";
-import Navbar from "./components/Header/Navbar";
 import { Home } from "./pages/Home";
-import Container from "./components/Header/Container";
+import Header from "./components/Header";
 
 import "./styles/global.css";
-
-
 
 export const App = () => {
   const [cursos, setCursos] = useState([]);
@@ -22,9 +19,7 @@ export const App = () => {
 
   return (
     <main>
-      <Container customClass="min-height">
-          <Navbar />
-      </Container>
+      <Header />
       <Register />
       {cursos.map((curso) => (
         <Card
