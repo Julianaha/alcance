@@ -1,6 +1,26 @@
 import styles from "./Register.module.css";
+import { apiAlcance } from "../../service/Service.js";
+import { useState } from "react";
 
 function Register() {
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [telefone, setTelefone] = useState("");
+  const [estado, setEstado] = useState("");
+  const [unidade, setUnidade] = useState("");
+  const [curso, setCurso] = useState("");
+
+  const submitForme = (nome, email, telefone, estado, unidade, curso) => {
+    apiAlcance.post(`/alunos`, {
+      nome,
+      email,
+      telefone,
+      estado,
+      unidade,
+      curso,
+    });
+  };
+
   return (
     <div className={styles.container}>
       <form>
@@ -18,6 +38,10 @@ function Register() {
                 id="name"
                 name="username"
                 className={styles.user}
+                onChange={(e) => {
+                  //console.log(nome)
+                  setNome(e.target.value);
+                }}
               />
             </p>
             <p className={styles.col}>
@@ -29,6 +53,10 @@ function Register() {
                 id="mail"
                 name="usermail"
                 className={styles.user}
+                onChange={(e) => {
+                  //console.log(email)
+                  setEmail(e.target.value);
+                }}
               />
             </p>
           </div>
@@ -44,13 +72,26 @@ function Register() {
                 pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                 placeholder="(00) 00000-0000"
                 className={styles.input}
+                onChange={(e) => {
+                  //console.log(telefone)
+                  setTelefone(e.target.value);
+                }}
               />
             </p>
             <p className={styles.col}>
               <label htmlFor="state">
                 <span>Estado*</span>
               </label>
-              <select id="state" name="state" required className={styles.input}>
+              <select
+                id="state"
+                name="state"
+                required
+                className={styles.input}
+                onChange={(e) => {
+                  //console.log(estado)
+                  setEstado(e.target.value);
+                }}
+              >
                 <option defaultValue={""} disabled selected>
                   Selecione um estado
                 </option>
@@ -64,7 +105,16 @@ function Register() {
               <label htmlFor="unit">
                 <span>Unidade*</span>
               </label>
-              <select id="unit" name="unit" required className={styles.unidade}>
+              <select
+                id="unit"
+                name="unit"
+                required
+                className={styles.unidade}
+                onChange={(e) => {
+                  //console.log(unidade)
+                  setUnidade(e.target.value);
+                }}
+              >
                 <option defaultValue={""} disabled selected>
                   Selecione uma unidade
                 </option>
@@ -85,19 +135,19 @@ function Register() {
                 name="course"
                 required
                 className={styles.input_course}
+                onChange={(e) => {
+                  //console.log(curso)
+                  setCurso(e.target.value);
+                }}
               >
                 <option defaultValue={""} disabled selected>
                   Selecione um curso
                 </option>
                 <option defaultValue="course1">Informática básica</option>
-                <option defaultValue="course2">
-                  Inglês básico ao avançado
-                </option>
+                <option defaultValue="course2">Inglês básico ao avançado</option>
                 <option defaultValue="course3">Excel básico ao avançado</option>
-                <option defaultValue="course4">Informática básica</option>
-                <option defaultValue="course5">
-                  Inglês básico ao avançado
-                </option>
+                <option defaultValue="course4">Introdução a Metodologia Àgil</option>
+                <option defaultValue="course5">Introdução a Lógica de Programação</option>
               </select>
             </p>
             <p>*Item Obrigatório</p>
@@ -111,7 +161,19 @@ function Register() {
                 serviços educacionais prestados pela Avance.
               </label>
             </div>
-            <button>Enviar</button>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                submitForme(nome, email, telefone, estado, unidade, curso);
+                console.log(
+                  `Dados enviados : ${
+                    (nome, email, telefone, estado, unidade, curso)
+                  }`
+                );
+              }}
+            >
+              Enviar
+            </button>
           </div>
         </section>
       </form>

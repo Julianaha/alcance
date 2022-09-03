@@ -1,9 +1,6 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import styles from "./Navbar.module.css";
 import logo from '../../assets/alcance_logo.png'
-
 import Container from "./Container";
+import styles from "./Navbar.module.css";
 
 
 function Navbar() {
@@ -12,38 +9,38 @@ function Navbar() {
             <div className={styles.header}>
             <ul className={styles.list2}>
                     <li className={styles.item2}>
-                    <Link to= "/">Ainda não é Aluno?</Link>
+                    Ainda não é Aluno?
                     </li>
                     <li className={styles.item2}>
-                    <Link to= "/"><button> Inscreva-se pelo Whats</button></Link>
+                    <button> Inscreva-se pelo Whats</button>
                     </li>
                     <li className={styles.item2}>
-                    <Link to= "/"><button>Inscreva-se pelo site</button></Link>
+                    <button>Inscreva-se pelo site</button>
                     </li>
                     </ul>
             </div>
             <Container>
-                <Link to="/">
+                
                 <img id='logoheader' src={logo} width='180'alt="alcance logo"/>
-                </Link>
+               
                 <ul className={styles.list}>
                     <li className={styles.item}>
-                    <Link to= "/">Quem Somos</Link>
+                    Quem Somos
                     </li>
                     <li className={styles.item}>
-                    <Link to= "/">Cursos</Link>
+                    Cursos
                     </li>
                     <li className={styles.item}>
-                    <Link to= "/">Unidades</Link>
+                    Unidades
                     </li>
                     <li className={styles.item}>
-                    <Link to= "/">Blog</Link>
+                    Blog
                     </li>
                     <li className={styles.item}>
-                    <Link to= "/">Empresas Parceiras</Link>
+                    Empresas Parceiras
                     </li>
                     <li className={styles.item}>
-                    <Link to= "/"><button>Login</button></Link>
+                    <button>Login</button>
                     </li>
                 </ul>
             </Container>
