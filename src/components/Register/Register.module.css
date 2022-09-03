@@ -10,7 +10,7 @@
   color: #fff;
 }
 
-form {
+.form {
   background-color: #aba8a8;
   width: 90%;
   height: 518px;
@@ -112,7 +112,7 @@ form {
   width: 50%;
 }
 
-button {
+.button {
   font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
