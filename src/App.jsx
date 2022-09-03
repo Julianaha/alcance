@@ -12,8 +12,9 @@ import Container from './components/Header/Container';
 function App() {
 
   return (
-  <Home />
+  
     <Container customClass="min-height">
+
     <Router>
        <Navbar />
     </Router>
