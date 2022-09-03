@@ -5,6 +5,7 @@ import logo from '../../assets/alcance_logo.png'
 
 import Container from "./Container";
 
+
 function Navbar() {
     return (
         <nav class={styles.navbar}>
