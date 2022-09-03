@@ -1,11 +1,8 @@
-import Register from "./components/Register";
+import { Home } from "./pages/Home";
 import "./styles/global.css";
 
 function App() {
-  return (
-    <main>
-    </main>
-  );
+  return <Home />;
 }
 
 export default App;
