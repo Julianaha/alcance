@@ -1,7 +1,11 @@
+import Register from "./components/Register";
 import "./styles/global.css";
 
 function App() {
-  return <h1>Hello</h1>;
+  return (
+    <main>
+    </main>
+  );
 }
 
 export default App;
