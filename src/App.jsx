@@ -4,7 +4,6 @@ import { Card } from "./components/card/Card";
 import { apiAlcance } from "./service/Service";
 import { Home } from "./pages/Home";
 import Header from "./components/Header";
-
 import "./styles/global.css";
 
 export const App = () => {
@@ -21,6 +20,7 @@ export const App = () => {
     <main>
       <Header />
       <Register />
+
       {cursos.map((curso) => (
         <Card
           key={curso.id}

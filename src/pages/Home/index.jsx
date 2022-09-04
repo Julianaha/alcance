@@ -1,6 +1,7 @@
-import { Login } from "../../pages/Login";
+import { Login } from "../Login";
 import Register from "../../components/Register";
 import Header from "../../components/Header";
+import { User } from "../User"
 
 export const Home = () => {
   return (
@@ -8,6 +9,7 @@ export const Home = () => {
       <Header/>
       <Login />
       <Register />
+      <User/>
     </>
   );
 };
