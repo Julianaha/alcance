@@ -1,10 +1,10 @@
-
 import Register from "../../components/Register";
 import Header from "../../components/Header";
 import React, { useState, useEffect } from "react";
 import { Card } from "../../components/card/Card";
 import { apiAlcance } from "../../service/Service";
 import styles from "../../components/card/Card.module.css";
+
 
 export const Home = () => {
   const [cursos, setCursos] = useState([]);
@@ -32,9 +32,8 @@ export const Home = () => {
      
       </div>
       <Register />
+
       </main>
-    
-      
     
   );
 };
