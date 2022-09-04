@@ -6,18 +6,18 @@ function Register() {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
-  const [estado, setEstado] = useState("");
+  const [senha, setSenha] = useState("");
   const [unidade, setUnidade] = useState("");
   const [curso, setCurso] = useState("");
 
-  const submitForme = (nome, email, telefone, estado, unidade, curso) => {
+  const submitForme = (nome, email, telefone, senha, unidade, curso) => {
     apiAlcance.post(`/alunos`, {
       nome,
       email,
       telefone,
-      estado,
       unidade,
       curso,
+      senha
     });
   };
 
@@ -79,27 +79,20 @@ function Register() {
               />
             </p>
             <p className={styles.col}>
-              <label htmlFor="state">
-                <span>Estado*</span>
+              <label htmlFor="password">
+                <span>Senha*</span>
               </label>
-              <select
-                id="state"
-                name="state"
+              <input
+                id="password"
+                name="password"
+                type="password"
                 required
                 className={styles.input}
                 onChange={(e) => {
-                  //console.log(estado)
-                  setEstado(e.target.value);
+                  setSenha(e.target.value);
                 }}
               >
-                <option defaultValue={""} disabled selected>
-                  Selecione um estado
-                </option>
-                <option defaultValue="PE">Pernambuco</option>
-                <option defaultValue="RJ">Rio de Janeiro</option>
-                <option defaultValue="SP">São Paulo</option>
-                <option defaultValue="SC">Santa Catarina</option>
-              </select>
+              </input>
             </p>
             <p className={styles.col}>
               <label htmlFor="unit">
@@ -171,10 +164,10 @@ function Register() {
               className={styles.button}
               onClick={(e) => {
                 e.preventDefault();
-                submitForme(nome, email, telefone, estado, unidade, curso);
+                submitForme(nome, email, telefone, senha, unidade, curso);
                 console.log(
                   `Dados enviados : ${
-                    (nome, email, telefone, estado, unidade, curso)
+                    (nome, email, telefone, senha, unidade, curso)
                   }`
                 );
               }}
