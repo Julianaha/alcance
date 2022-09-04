@@ -1,5 +1,6 @@
 import styles from "./Header.module.css";
 import alcanceLogo from "../../assets/alcance_logo.png";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -19,7 +20,7 @@ function Header() {
           <p>Cursos</p>
           <p>Unidades</p>
           <p>Empresas Parceiras</p>
-          <button className={styles.btnNav}>Login</button>
+          <Link to="/login"><button className={styles.btnNav}>Login</button></Link>
         </span>
       </nav>
     </header>
