@@ -1,34 +1,23 @@
-import Register from "./components/Register";
-import React, { useState, useEffect } from "react";
-import { Card } from "./components/card/Card";
-import { apiAlcance } from "./service/Service";
 import { Home } from "./pages/Home";
-import Header from "./components/Header";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Login } from "./pages/Login/index";
+import { User } from "./pages/User/User";
+
 
 import "./styles/global.css";
 
 export const App = () => {
-  const [cursos, setCursos] = useState([]);
-
-  useEffect(() => {
-    apiAlcance.get(`/cursos`).then((res) => {
-      console.log(res.data);
-      setCursos(res.data);
-    });
-  }, []);
+  
 
   return (
-    <main>
-      <Header />
-      <Register />
-      {cursos.map((curso) => (
-        <Card
-          key={curso.id}
-          nome={curso.nome}
-          image={curso.image}
-          descricao={curso.descricao}
-        />
-      ))}
-    </main>
+    <BrowserRouter>
+    
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="login" element={<Login  />} />
+        <Route path="user" element={<User  />} />
+
+      </Routes>  
+    </BrowserRouter>
   );
 };
