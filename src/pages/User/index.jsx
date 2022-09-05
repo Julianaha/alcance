@@ -1,7 +1,40 @@
+import { Link, useNavigate } from "react-router-dom";
+import { useContext, useState, useEffect } from "react";
 import user from "../../assets/user.png";
 import styles from "./User.module.css";
+import { context } from "../../Contexts/Contexts";
+import { apiAlcance } from "../../service/Service";
+import Swal from "sweetalert2";
 
 export const User = () => {
+const { aluno } = useContext(context);
+
+
+const AlcanceDelete = (id) => {
+  apiAlcance.delete(`/alunos/${id}`);
+  console.log(`${id} deletado`);
+};
+
+const deleteUser = () =>{
+  const nav = useNavigate
+  Swal.fire({
+    title: 'Excluir',
+    text: "Tem certeza que quer dletar esse usuario?",
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Sim, tenho certeza!',
+    cancelButtonText: 'Melhor eu parar...'
+    }).then((result) => {
+      if (result.value) {
+        Swal(
+          AlcanceDelete(aluno.id),
+          nav("/")
+        )
+      }
+    })
+}
   return (
     <main className={styles.page}>
       <div className={styles.contentUser}>
@@ -10,7 +43,9 @@ export const User = () => {
             <div className={styles.profilecontent}>
               <img src={user} className={styles.imgUser} />
               <h3 className={styles.username}>Nome do usuário</h3>
-              <button className={styles.btndelete}>excluir</button>
+              <button className={styles.btndelete} onClick={() =>{
+                deleteUser()
+                }}>excluir</button>
             </div>
           </div>
         </aside>
@@ -25,6 +60,7 @@ export const User = () => {
                     type="text"
                     id="name"
                     name="username"
+                    value={aluno.nome}
                     autoFocus
                     className={styles.userinput}
                   />
@@ -34,6 +70,7 @@ export const User = () => {
                   <input
                     type="email"
                     id="mail"
+                    value={aluno.email}
                     name="usermail"
                     className={styles.userinput}
                   />
@@ -44,6 +81,7 @@ export const User = () => {
                     type="tel"
                     id="phone"
                     name="phone"
+                    value={aluno.telefone}
                     pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                     placeholder="(00) 00000-0000"
                     className={styles.userinput}
@@ -55,6 +93,7 @@ export const User = () => {
                     type="password"
                     id="password"
                     name="password"
+                    value={aluno._senha}
                     className={styles.userinput}
                   />
                 </p>
@@ -92,6 +131,7 @@ export const User = () => {
                   <select
                     id="usercourse"
                     name="usercourse"
+                    value={aluno.curso}
                     required
                     className={styles.userinput}
                   >
@@ -118,6 +158,7 @@ export const User = () => {
                   <select
                     id="unit"
                     name="unit"
+                    value={aluno.unidade}
                     required
                     className={styles.userinput}
                   >
@@ -137,7 +178,7 @@ export const User = () => {
               </div>
             </form>
             <div className={styles.btnRegister}>
-              <button className={styles.btnBack}>voltar</button>
+             <Link to="/"><button className={styles.btnBack}>voltar</button></Link>
               <button className={styles.btnSave}>salvar</button>
             </div>
           </div>
