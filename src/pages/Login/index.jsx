@@ -19,24 +19,25 @@ export const Login = () => {
   const [senha, setSenha] = useState()
   const [aluno, setAluno] = useState([])
   
-const loginAluno = (email,senha) =>{
+const loginAluno = (email, senha) =>{
+
   apiAlcance
   .get(`/alunos/email/${email}`)
   .then(res =>{
-    console.log(res.data)
     setAluno(res.data)
     handleSubmit()
+    aluno.email == email && aluno._senha == senha?navigate("/user"):deuErrado()
   })
   .catch((erro)=>{
      deuErrado()
   })
-  aluno.email === email && aluno._senha === senha?navigate("/user"):deuErrado()
+  
 } 
 
 const handleSubmit = () => {
-  // console.log("dados pregister", { nome, email, telefone, senha,unidade,curso });
    submit({ aluno });
  };
+
   return (
     <div className={styles.grid}>
       <main className={styles.main}>

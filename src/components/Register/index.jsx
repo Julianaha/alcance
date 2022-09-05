@@ -13,14 +13,14 @@ export const Register =()=> {
   const [curso, setCurso] = useState("");
 
 
-  const submitForme = (nome, email, telefone, senha, unidade, curso) => {
+  const submitForme = (nome, email, telefone,  unidade, curso, senha) => {
     apiAlcance.post(`/alunos`, {
-      nome,
-      email,
-      telefone,
-      unidade,
-      curso,
-      senha
+    nome,
+    email,
+    telefone,
+    unidade,
+    curso,
+    senha
     })
     .then((res)=>{
       console.log(res)

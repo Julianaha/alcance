@@ -9,10 +9,28 @@ import Swal from "sweetalert2";
 export const User = () => {
 const { aluno } = useContext(context);
 
+  const [nome, setNome] = useState(aluno.nome);
+  const [email, setEmail] = useState(aluno.email);
+  const [telefone, setTelefone] = useState(aluno.telefone);
+  const [senha, setSenha] = useState(aluno._senha);
+  const [unidade, setUnidade] = useState(aluno.unidade);
+  const [curso, setCurso] = useState(aluno.curso);
 
 const AlcanceDelete = (id) => {
   apiAlcance.delete(`/alunos/${id}`);
   console.log(`${id} deletado`);
+};
+
+const AlcanceAtualiza = (id, nome, email, telefone,  unidade, curso, senha) => {
+  apiAlcance.put(`/alunos/${id}`,{
+    nome,
+    email,
+    telefone,
+    unidade,
+    curso,
+    senha
+  });
+  //console.log(`${id} atualiza`);
 };
 
 const deleteUser = () =>{
@@ -42,7 +60,7 @@ const deleteUser = () =>{
           <div className={styles.profile}>
             <div className={styles.profilecontent}>
               <img src={user} className={styles.imgUser} />
-              <h3 className={styles.username}>Nome do usuário</h3>
+              <h3 className={styles.username}>{nome}</h3>
               <button className={styles.btndelete} onClick={() =>{
                 deleteUser()
                 }}>excluir</button>
@@ -60,9 +78,13 @@ const deleteUser = () =>{
                     type="text"
                     id="name"
                     name="username"
-                    value={aluno.nome}
+                    value={nome}
                     autoFocus
                     className={styles.userinput}
+                    onChange={(e) => {
+                  setNome(e.target.value)
+                  ;
+                }}
                   />
                 </p>
                 <p className={styles.userflex}>
@@ -70,9 +92,12 @@ const deleteUser = () =>{
                   <input
                     type="email"
                     id="mail"
-                    value={aluno.email}
+                    value={email}
                     name="usermail"
                     className={styles.userinput}
+                    onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
                   />
                 </p>
                 <p className={styles.userflex}>
@@ -85,6 +110,10 @@ const deleteUser = () =>{
                     pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                     placeholder="(00) 00000-0000"
                     className={styles.userinput}
+                    onChange={(e) => {
+                  
+                  setTelefone(e.target.value);
+                }}
                   />
                 </p>
                 <p className={styles.userflex}>
@@ -93,8 +122,12 @@ const deleteUser = () =>{
                     type="password"
                     id="password"
                     name="password"
-                    value={aluno._senha}
+                    value={senha}
                     className={styles.userinput}
+                    onChange={(e) => {
+                  
+                  setSenha(e.target.value);
+                }}
                   />
                 </p>
               </div>
@@ -131,9 +164,13 @@ const deleteUser = () =>{
                   <select
                     id="usercourse"
                     name="usercourse"
-                    value={aluno.curso}
+                    value={curso}
                     required
                     className={styles.userinput}
+                    onChange={(e) => {
+                  
+                  setCurso(e.target.value);
+                }}
                   >
                     <option defaultValue={""} disabled selected>
                       Selecione um curso
@@ -158,9 +195,13 @@ const deleteUser = () =>{
                   <select
                     id="unit"
                     name="unit"
-                    value={aluno.unidade}
+                    value={unidade}
                     required
                     className={styles.userinput}
+                    onChange={(e) => {
+                 
+                  setUnidade(e.target.value);
+                }}
                   >
                     <option defaultValue={""} disabled selected>
                       Selecione uma unidade
@@ -179,7 +220,11 @@ const deleteUser = () =>{
             </form>
             <div className={styles.btnRegister}>
              <Link to="/"><button className={styles.btnBack}>voltar</button></Link>
-              <button className={styles.btnSave}>salvar</button>
+              <button className={styles.btnSave} onClick={(e) => {
+                e.preventDefault();
+                console.log(aluno.id,nome, email, telefone, senha, unidade, curso)
+                AlcanceAtualiza(aluno.id,nome, email, telefone, senha, unidade, curso);
+              }}>salvar</button>
             </div>
           </div>
         </section>

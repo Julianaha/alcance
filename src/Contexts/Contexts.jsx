@@ -7,8 +7,8 @@ export const Provider = ({ children }) => {
     const [aluno, setAluno] = useState([]);
     
     const handleSubmit = ({ aluno }) => {
-    console.log("dados customore", { aluno });
     setAluno(aluno);
+    
   };
   return (
     <context.Provider
