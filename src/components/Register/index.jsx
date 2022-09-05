@@ -1,8 +1,10 @@
 import styles from "./Register.module.css";
 import { apiAlcance } from "../../service/Service.js";
 import { useState } from "react";
+import {deuCerto, deuErrado} from "../../Util/Util"
 
-function Register() {
+export const Register =()=> {
+  
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
@@ -10,16 +12,26 @@ function Register() {
   const [unidade, setUnidade] = useState("");
   const [curso, setCurso] = useState("");
 
-  const submitForme = (nome, email, telefone, senha, unidade, curso) => {
+
+  const submitForme = (nome, email, telefone,  unidade, curso, senha) => {
     apiAlcance.post(`/alunos`, {
-      nome,
-      email,
-      telefone,
-      unidade,
-      curso,
-      senha
-    });
+    nome,
+    email,
+    telefone,
+    unidade,
+    curso,
+    senha
+    })
+    .then((res)=>{
+      console.log(res)
+      deuCerto()
+    })
+    .catch((error) => {
+      console.log(error)
+      deuErrado()
+    })
   };
+
 
   return (
     <div className={styles.container}>
@@ -165,11 +177,6 @@ function Register() {
               onClick={(e) => {
                 e.preventDefault();
                 submitForme(nome, email, telefone, senha, unidade, curso);
-                console.log(
-                  `Dados enviados : ${
-                    (nome, email, telefone, senha, unidade, curso)
-                  }`
-                );
               }}
             >
               Enviar
@@ -181,4 +188,3 @@ function Register() {
   );
 }
 
-export default Register;

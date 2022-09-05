@@ -2,25 +2,41 @@ import { FaAngleLeft } from "react-icons/fa";
 import login from "../../assets/login.png";
 import alcance from "../../assets/footerAlcance.png";
 import styles from "./Login.module.css";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import {Link, useNavigate } from "react-router-dom";
+import { useState, useContext } from "react";
 import { apiAlcance } from "../../service/Service";
+import { deuErrado } from "../../Util/Util";
+import { context } from "../../Contexts/Contexts";
+
 
 export const Login = () => {
 
+  const {submit} = useContext(context);
+
   const navigate = useNavigate()
+
   const [email, setEmail] = useState()
   const [senha, setSenha] = useState()
-
-  const [aluno, setAluno] = useState()
+  const [aluno, setAluno] = useState([])
   
-const loginAluno = (email) =>{
+const loginAluno = (email, senha) =>{
+
   apiAlcance
-  .get(`/alunos/${email}`)
+  .get(`/alunos/email/${email}`)
   .then(res =>{
     setAluno(res.data)
+    handleSubmit()
+    aluno.email == email && aluno._senha == senha?navigate("/user"):deuErrado()
   })
+  .catch((erro)=>{
+     deuErrado()
+  })
+  
 } 
+
+const handleSubmit = () => {
+   submit({ aluno });
+ };
 
   return (
     <div className={styles.grid}>
@@ -49,10 +65,7 @@ const loginAluno = (email) =>{
                 <button type="submit" className={styles.button} onClick={
                   (e) =>{
                     e.preventDefault()
-                    loginAluno(email);
-                    console.log(email, senha)
-                    console.log(aluno.email, aluno._senha)
-                    aluno.email == email && aluno._senha == senha?navigate("/user"):console.log("nao valido")
+                    loginAluno(email,senha);
                   }
                 }>
                   entrar
