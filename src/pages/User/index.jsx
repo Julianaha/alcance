@@ -21,7 +21,7 @@ const AlcanceDelete = (id) => {
   console.log(`${id} deletado`);
 };
 
-const AlcanceAtualiza = (id, nome, email, telefone, unidade, curso, senha) => {
+const AlcanceAtualiza = (id, nome, email, telefone,  unidade, curso, senha) => {
   apiAlcance.put(`/alunos/${id}`,{
     nome,
     email,
@@ -60,7 +60,7 @@ const deleteUser = () =>{
           <div className={styles.profile}>
             <div className={styles.profilecontent}>
               <img src={user} className={styles.imgUser} />
-              <h3 className={styles.username}>{aluno.nome}</h3>
+              <h3 className={styles.username}>{nome}</h3>
               <button className={styles.btndelete} onClick={() =>{
                 deleteUser()
                 }}>excluir</button>
