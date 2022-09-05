@@ -2,7 +2,8 @@ import { Home } from "./pages/Home";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Login } from "./pages/Login/index";
-import { User } from "./pages/User/User";
+import { User } from "./pages/User/index";
+import { Provider } from "./Contexts/Contexts";
 
 
 import "./styles/global.css";
@@ -11,8 +12,8 @@ export const App = () => {
   
 
   return (
-
-    <BrowserRouter>
+<Provider>
+<BrowserRouter>
     
       <Routes>
         <Route path="/" element={<Home />} />
@@ -21,6 +22,8 @@ export const App = () => {
 
       </Routes>  
     </BrowserRouter>
+</Provider>
+    
 
   );
 };

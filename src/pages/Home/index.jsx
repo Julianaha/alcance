@@ -1,4 +1,4 @@
-import Register from "../../components/Register";
+import {Register} from "../../components/Register";
 import Header from "../../components/Header";
 import React, { useState, useEffect } from "react";
 import { Card } from "../../components/card/Card";
@@ -11,7 +11,6 @@ export const Home = () => {
 
   useEffect(() => {
     apiAlcance.get(`/cursos`).then((res) => {
-      console.log(res.data);
       setCursos(res.data);
     });
   }, []);
