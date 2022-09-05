@@ -6,7 +6,7 @@
 }
 
 .main {
-  background-color: #c2c2c2;
+  background: linear-gradient(0.07deg, #00beb9 29.1%, #35426f 99.94%);
 }
 
 .nav {
@@ -22,7 +22,7 @@
 
 .container {
   height: 100%;
-  background-color: #a3a0a0;
+  background: linear-gradient(89.93deg, #00beb9 28.15%, #35426f 99.94%);
   width: 40%;
   margin: 0 auto;
 }
@@ -47,6 +47,11 @@
   width: 40%;
 }
 
+.loginStudent{
+  padding: 20px;
+  color: #fff;
+}
+
 .user {
   display: flex;
   flex-direction: column;
@@ -60,21 +65,31 @@
   background-color: transparent;
   border: 0;
   outline: 0;
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid #fff;
 }
 
 .user label {
   font-size: 14px;
+  color: #F2F3F4;
+  font-weight: 600;
 }
 
 .button {
+  background-color: #00BEB9;
   text-transform: uppercase;
   padding: 10px;
   border-radius: 13px;
-  border: none;
+  border: 1px solid #fff;
   margin-top: 2rem;
   cursor: pointer;
+  color: #FFFFFF;
+  font-weight: 700;
   font-family: "Poppins", sans-serif;
+}
+
+button:hover {
+color: #00BEB9;
+transition-duration: 1s;
 }
 
 .register {
@@ -82,17 +97,18 @@
   cursor: pointer;
   font-family: "Poppins", sans-serif;
   font-size: 12px;
-  color: #000;
+  color: #FFFFFF;
 }
 
 a:link,
 a:visited {
   text-decoration: none;
-  color: #000;
+  color:#FFFFFF;
 }
 
 a:hover {
   text-decoration: underline;
+  color: #F26B1D;
 }
 
 .img {
@@ -101,5 +117,5 @@ a:hover {
 }
 
 footer {
-  background-color: #9a9696;
+  background-color: #35426F;
 }
