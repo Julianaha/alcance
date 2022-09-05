@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+.banner {
+  margin: 8% 0 10% 0;
+  position: relative;
+  max-width: 100vw;
+}
+
+.imgBanner {
+  width: 100%;
+}
+.boxCarrossel {
+  position: absolute;
+  padding: 20px;
+  top: -110px;
+  margin: 0 15% 0 15%;
+}
+
+.carrossel {
+  border-radius: 10px;
+  height: 70vh;
+}
+
+.about {
+  background: linear-gradient(89.93deg, #00beb9 0.05%, #35426f 99.94%);
+  text-align: center;
+  height: 70vh;
+  margin-top: 10%;
+}
+
+.imgAbout {
+  padding: 3rem;
+}
+
+.boxCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 15px;
+}
+.card {
+  background-color: #fff;
+  border-radius: 15px;
+  width: 320px;
+  height: 286px;
+}
+
+.titleCard {
+  text-align: center;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
+  font-size: 25px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.textCard {
+  font-family: "Poppins";
+  text-align: left;
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: 16px;
+  padding: 15px;
+  margin: 1rem;
+}

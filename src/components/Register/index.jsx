@@ -167,7 +167,7 @@ export const Register =()=> {
             <div className={styles.privacy}>
               <input type="checkbox" id="privacy" name="privacy" />
               <label htmlFor="privacy">
-                Declaro que li e concordo com a política de privacidade, bem
+                Declaro que li e concordo com a<b> política de privacidade</b>, bem
                 como com o tratamento dos meus dados para fins de prospecção dos
                 serviços educacionais prestados pela Avance.
               </label>
