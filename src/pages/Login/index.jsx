@@ -35,6 +35,7 @@ const loginAluno = (email) =>{
           <form className={styles.form}>
             <div className={styles.form_login}>
               <img src={login} className={styles.logo} />
+              <p className={styles.loginStudent}>Login do Aluno</p>
               <div className={styles.user}>
                 <label htmlFor="mail">Usuário</label>
                 <input type="email" id="mail" name="usermail" onChange={(e) => {
@@ -58,7 +59,7 @@ const loginAluno = (email) =>{
                 </button>
               </div>
               <p className={styles.register}>
-                Não tem uma conta? <Link to="/">Cadastre-se</Link>
+                Novo por aqui? <Link to="/">Registre-se</Link>
               </p>
             </div>
           </form>
