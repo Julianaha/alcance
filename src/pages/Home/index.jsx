@@ -9,6 +9,7 @@ import carrossel from "../../assets/carrossel.png";
 import logo_oferecemos from "../../assets/logo_oferecemos.png";
 import logo from "../../assets/logo.png";
 import style from "./Home.module.css";
+import Footer from "../../components/Footer";
 
 export const Home = () => {
   const [cursos, setCursos] = useState([]);
@@ -84,20 +85,7 @@ export const Home = () => {
         </div>
         <Register />
       </main>
-      <footer className={style.footer}>
-        <div className={style.logoFooter}>
-          <img src={logo}/>
-        </div>
-        <div>
-          <p>ainda nao e aluno?</p>
-        </div>
-        <div className={style.messageFooter}>
-          <p>
-            © 2022 Alcance • Todos os direitos reservados • Política de
-            Privacidade
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 };
