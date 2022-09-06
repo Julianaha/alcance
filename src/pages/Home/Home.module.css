@@ -65,3 +65,22 @@
   padding: 15px;
   margin: 1rem;
 }
+
+.footer {
+  height: 50vh;
+  background-color: #35426f;
+}
+
+.messageFooter {
+  height: 30px;
+  background: #f26b1d;
+  text-align: center;
+  padding-top: 25px;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.logoFooter {
+  background: #7cdddb;
+  height: 60px;
+
+}
