@@ -4,10 +4,14 @@ import user from "../../assets/user.png";
 import styles from "./User.module.css";
 import { context } from "../../Contexts/Contexts";
 import { apiAlcance } from "../../service/Service";
+//import { SuccessDelete } from "../../Util/Util";
+
 import Swal from "sweetalert2";
 
 export const User = () => {
-const { aluno } = useContext(context);
+  const { aluno } = useContext(context);
+  const navPut = useNavigate();
+  const navDelete = useNavigate();
 
   const [nome, setNome] = useState(aluno.nome);
   const [email, setEmail] = useState(aluno.email);
@@ -16,43 +20,48 @@ const { aluno } = useContext(context);
   const [unidade, setUnidade] = useState(aluno.unidade);
   const [curso, setCurso] = useState(aluno.curso);
 
-const AlcanceDelete = (id) => {
-  apiAlcance.delete(`/alunos/${id}`);
-  console.log(`${id} deletado`);
-};
+  const AlcanceDelete = (id) => {
+    apiAlcance.delete(`/alunos/${id}`);
+    navDelete("/");
+  };
 
-const AlcanceAtualiza = (id, nome, email, telefone,  unidade, curso, senha) => {
-  apiAlcance.put(`/alunos/${id}`,{
+const SuccessDelete = () => {
+    Swal.fire({
+      title: "Excluir...",
+      text: "Tem certeza que quer deletar esse usuario?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sim, tenho certeza!",
+      cancelButtonText: "Não",
+      reverseButtons: true,
+    }).then((result) => {
+    if (result.value) {
+      Swal.fire("Excluido", AlcanceDelete(aluno.id));
+    }
+  });
+}
+  const AlcanceAtualiza = (
+    id,
     nome,
     email,
     telefone,
     unidade,
     curso,
     senha
-  });
-  //console.log(`${id} atualiza`);
-};
+  ) => {
+    apiAlcance.put(`/alunos/${id}`, {
+      nome,
+      email,
+      telefone,
+      unidade,
+      curso,
+      senha,
+    });
+    navPut("/login");
+  };
 
-const deleteUser = () =>{
-  const nav = useNavigate
-  Swal.fire({
-    title: 'Excluir',
-    text: "Tem certeza que quer dletar esse usuario?",
-    type: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Sim, tenho certeza!',
-    cancelButtonText: 'Melhor eu parar...'
-    }).then((result) => {
-      if (result.value) {
-        Swal(
-          AlcanceDelete(aluno.id),
-          nav("/")
-        )
-      }
-    })
-}
   return (
     <main className={styles.page}>
       <div className={styles.contentUser}>
@@ -61,9 +70,14 @@ const deleteUser = () =>{
             <div className={styles.profilecontent}>
               <img src={user} className={styles.imgUser} />
               <h3 className={styles.username}>{nome}</h3>
-              <button className={styles.btndelete} onClick={() =>{
-                deleteUser()
-                }}>excluir</button>
+              <button
+                className={styles.btndelete}
+                onClick={() => {
+                  SuccessDelete()
+                }}
+              >
+                excluir
+              </button>
             </div>
           </div>
         </aside>
@@ -82,9 +96,8 @@ const deleteUser = () =>{
                     autoFocus
                     className={styles.userinput}
                     onChange={(e) => {
-                  setNome(e.target.value)
-                  ;
-                }}
+                      setNome(e.target.value);
+                    }}
                   />
                 </p>
                 <p className={styles.userflex}>
@@ -96,8 +109,8 @@ const deleteUser = () =>{
                     name="usermail"
                     className={styles.userinput}
                     onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
+                      setEmail(e.target.value);
+                    }}
                   />
                 </p>
                 <p className={styles.userflex}>
@@ -111,9 +124,8 @@ const deleteUser = () =>{
                     placeholder="(00) 00000-0000"
                     className={styles.userinput}
                     onChange={(e) => {
-                  
-                  setTelefone(e.target.value);
-                }}
+                      setTelefone(e.target.value);
+                    }}
                   />
                 </p>
                 <p className={styles.userflex}>
@@ -125,9 +137,8 @@ const deleteUser = () =>{
                     value={senha}
                     className={styles.userinput}
                     onChange={(e) => {
-                  
-                  setSenha(e.target.value);
-                }}
+                      setSenha(e.target.value);
+                    }}
                   />
                 </p>
               </div>
@@ -168,9 +179,8 @@ const deleteUser = () =>{
                     required
                     className={styles.userinput}
                     onChange={(e) => {
-                  
-                  setCurso(e.target.value);
-                }}
+                      setCurso(e.target.value);
+                    }}
                   >
                     <option defaultValue={""} disabled selected>
                       Selecione um curso
@@ -199,9 +209,8 @@ const deleteUser = () =>{
                     required
                     className={styles.userinput}
                     onChange={(e) => {
-                 
-                  setUnidade(e.target.value);
-                }}
+                      setUnidade(e.target.value);
+                    }}
                   >
                     <option defaultValue={""} disabled selected>
                       Selecione uma unidade
@@ -219,12 +228,26 @@ const deleteUser = () =>{
               </div>
             </form>
             <div className={styles.btnRegister}>
-             <Link to="/"><button className={styles.btnBack}>voltar</button></Link>
-              <button className={styles.btnSave} onClick={(e) => {
-                e.preventDefault();
-                console.log(aluno.id,nome, email, telefone, senha, unidade, curso)
-                AlcanceAtualiza(aluno.id,nome, email, telefone, senha, unidade, curso);
-              }}>salvar</button>
+              <Link to="/">
+                <button className={styles.btnBack}>sair</button>
+              </Link>
+              <button
+                className={styles.btnSave}
+                onClick={(e) => {
+                  e.preventDefault();
+                  AlcanceAtualiza(
+                    aluno.id,
+                    nome,
+                    email,
+                    telefone,
+                    unidade,
+                    curso,
+                    senha
+                  );
+                }}
+              >
+                salvar
+              </button>
             </div>
           </div>
         </section>

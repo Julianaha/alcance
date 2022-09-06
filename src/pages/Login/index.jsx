@@ -2,41 +2,46 @@ import { FaAngleLeft } from "react-icons/fa";
 import login from "../../assets/login.png";
 import alcance from "../../assets/footerAlcance.png";
 import styles from "./Login.module.css";
-import {Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import { apiAlcance } from "../../service/Service";
-import { deuErrado } from "../../Util/Util";
+import { Incorrect, Success } from "../../Util/Util";
 import { context } from "../../Contexts/Contexts";
 
-
 export const Login = () => {
+  const { submit } = useContext(context);
 
-  const {submit} = useContext(context);
+  const navigate = useNavigate();
 
-  const navigate = useNavigate()
+  const [email, setEmail] = useState();
+  const [senha, setSenha] = useState();
+  const [aluno, setAluno] = useState([]);
 
-  const [email, setEmail] = useState()
-  const [senha, setSenha] = useState()
-  const [aluno, setAluno] = useState([])
-  
-const loginAluno = (email, senha) =>{
+  const loginAluno = (email, senha) => {
+    apiAlcance
+      .get(`/alunos/email/${email}`)
+      .then((res) => {
+        setAluno(res.data);  
+      })
+      .then(() => {
+        handleSubmit();
+      })
+      .then(() => {
+        mudaPagina(email, senha);
+      })
+      .catch(() => {
+        Incorrect();
+      });
+  };
 
-  apiAlcance
-  .get(`/alunos/email/${email}`)
-  .then(res =>{
-    setAluno(res.data)
-    handleSubmit()
-    aluno.email == email && aluno._senha == senha?navigate("/user"):deuErrado()
-  })
-  .catch((erro)=>{
-     deuErrado()
-  })
-  
-} 
-
-const handleSubmit = () => {
-   submit({ aluno });
- };
+  const mudaPagina = (email, senha) =>{
+    aluno.email == email && aluno._senha == senha
+    ? navigate("/user")
+    : Incorrect();
+}
+  const handleSubmit = () => {
+    submit({ aluno });
+  };
 
   return (
     <div className={styles.grid}>
@@ -54,20 +59,31 @@ const handleSubmit = () => {
               <p className={styles.loginStudent}>Login do Aluno</p>
               <div className={styles.user}>
                 <label htmlFor="mail">Usuário</label>
-                <input type="email" id="mail" name="usermail" onChange={(e) => {
-                  setEmail(e.target.value);
-                }}/>
+                <input
+                  type="email"
+                  id="mail"
+                  name="usermail"
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                />
                 <label htmlFor="password">Senha</label>
-                <input type="password" id="password" name="password" onChange={(e) => {
-                  
-                  setSenha(e.target.value);
-                }}/>
-                <button type="submit" className={styles.button} onClick={
-                  (e) =>{
-                    e.preventDefault()
-                    loginAluno(email,senha);
-                  }
-                }>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  onChange={(e) => {
+                    setSenha(e.target.value);
+                  }}
+                />
+                <button
+                  type="submit"
+                  className={styles.button}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    loginAluno(email, senha);
+                  }}
+                >
                   entrar
                 </button>
               </div>
