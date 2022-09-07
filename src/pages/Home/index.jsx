@@ -7,16 +7,19 @@ import styles from "../../components/card/Card.module.css";
 import banner from "../../assets/banner_central.png";
 import carrossel from "../../assets/carrossel.png";
 import logo_oferecemos from "../../assets/logo_oferecemos.png";
+import logo from "../../assets/logo.png";
 import style from "./Home.module.css";
+import logo_cursos from "../../assets/logo_cursos.png"
+import student from "../../assets/student.png"
 import Footer from "../../components/Footer";
 
 export const Home = () => {
-  const [cursos, setCursos] = useState([]);
+   const [cursos, setCursos] = useState([]);
 
   useEffect(() => {
-    apiAlcance.get(`/cursos`).then((res) => {
-      setCursos(res.data);
-    });
+  apiAlcance.get(`/cursos`).then((res) => {
+  setCursos(res.data);
+  });
   }, []);
 
   return (
@@ -72,8 +75,17 @@ export const Home = () => {
             </div>
           </div>
         </section>
-        <div className={styles.cardConteiner}>
-          {cursos.map((curso) => (
+        <div className={style.courses}>
+          <div className={style.contentCourse}>
+            <img src={logo_cursos} />
+            <p className={style.textCourse}>
+              Nossa formação abrem as portas para a profissão que você escolher.
+              São indicados para quem quer ser um profissional capacitado na
+              prática, com foco direto ao mercado de trabalho, garantindo
+              formação para atividades e setores que estão em alta.
+            </p>
+            <div className={style.flexCard}>
+            {cursos.map(curso => (
             <Card
               key={curso.id}
               nome={curso.nome}
@@ -81,6 +93,14 @@ export const Home = () => {
               descricao={curso.descricao}
             />
           ))}
+            </div>
+            <div className={style.studentCard}>
+              <img src={student} className={style.imgStudent} />
+              <button className={style.btnStudent}>
+                conheça todos os nossos cursos
+              </button>
+            </div>
+          </div>
         </div>
         <Register />
       </main>

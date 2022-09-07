@@ -21,28 +21,20 @@ export const Login = () => {
     apiAlcance
       .get(`/alunos/email/${email}`)
       .then((res) => {
-        setAluno(res.data);  
+        setAluno(res.data);
+        handleSubmit(res.data);
+        res.data.email === email && res.data._senha === senha
+          ? navigate("/user")
+          : Incorrect();
       })
-      .then(() => {
-        handleSubmit();
-      })
-      .then(() => {
-        mudaPagina(email, senha);
-      })
-      .catch(() => {
+      .catch((error) => {
+        console.log(error);
         Incorrect();
       });
   };
-
-  const mudaPagina = (email, senha) =>{
-    aluno.email == email && aluno._senha == senha
-    ? navigate("/user")
-    : Incorrect();
-}
-  const handleSubmit = () => {
+  const handleSubmit = (aluno) => {
     submit({ aluno });
   };
-
   return (
     <div className={styles.grid}>
       <main className={styles.main}>
