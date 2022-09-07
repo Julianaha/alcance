@@ -3,13 +3,14 @@ import { useContext, useState, useEffect } from "react";
 import user from "../../assets/user.png";
 import styles from "./User.module.css";
 import { context } from "../../Contexts/Contexts";
-import { apiAlcance } from "../../service/Service";
-//import { SuccessDelete } from "../../Util/Util";
+import { apiAlcance, BuscaCep } from "../../service/Service";
+import { Success } from "../../Util/Util";
 
 import Swal from "sweetalert2";
 
 export const User = () => {
   const { aluno } = useContext(context);
+  console.log(aluno)
   const navPut = useNavigate();
   const navDelete = useNavigate();
 
@@ -20,10 +21,20 @@ export const User = () => {
   const [unidade, setUnidade] = useState(aluno.unidade);
   const [curso, setCurso] = useState(aluno.curso);
 
+  const [cep, setCep] = useState()
+  
+
   const AlcanceDelete = (id) => {
     apiAlcance.delete(`/alunos/${id}`);
     navDelete("/");
   };
+
+const Cep = () =>{
+  BuscaCep.get(`01001000/json/`)
+  .then(res =>{
+    console.log(res.data)
+  })
+}
 
 const SuccessDelete = () => {
     Swal.fire({
@@ -31,14 +42,20 @@ const SuccessDelete = () => {
       text: "Tem certeza que quer deletar esse usuario?",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
+      confirmButtonColor: "#7cdddb",
       cancelButtonColor: "#d33",
       confirmButtonText: "Sim, tenho certeza!",
       cancelButtonText: "Não",
       reverseButtons: true,
     }).then((result) => {
     if (result.value) {
-      Swal.fire("Excluido", AlcanceDelete(aluno.id));
+      Swal.fire({
+        title: "Excluindo...",
+        icon: 'success',
+        position: 'top-center',
+        showConfirmButton: false,
+        timer: 1500,
+        "Excluido": AlcanceDelete(aluno.id)}) 
     }
   });
 }
@@ -58,8 +75,13 @@ const SuccessDelete = () => {
       unidade,
       curso,
       senha,
+    }).then(() => {
+      Success();
+      //navPut("/login");
+    })
+    .catch(() => {
+      Incorrect();
     });
-    navPut("/login");
   };
 
   return (
@@ -119,7 +141,7 @@ const SuccessDelete = () => {
                     type="tel"
                     id="phone"
                     name="phone"
-                    value={aluno.telefone}
+                    value={telefone}
                     pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                     placeholder="(00) 00000-0000"
                     className={styles.userinput}
@@ -168,6 +190,9 @@ const SuccessDelete = () => {
                     id="cep"
                     name="cep"
                     className={styles.userinput}
+                    onChange={(e) => {
+                      setCep(e.target.value);
+                    }}
                   />
                 </p>
                 <p className={styles.userflex}>
@@ -244,6 +269,7 @@ const SuccessDelete = () => {
                     curso,
                     senha
                   );
+                  Cep()
                 }}
               >
                 salvar

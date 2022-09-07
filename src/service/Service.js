@@ -6,3 +6,8 @@ axios.create({
     baseURL:`https://alcance-api-rest.herokuapp.com/`,
     //timeout: 1000,
 })
+
+export const BuscaCep = 
+axios.create({
+    baseURL:`https://viacep.com.br/ws/`,
+})
