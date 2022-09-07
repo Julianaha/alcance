@@ -9,6 +9,8 @@ import carrossel from "../../assets/carrossel.png";
 import logo_oferecemos from "../../assets/logo_oferecemos.png";
 import logo from "../../assets/logo.png";
 import style from "./Home.module.css";
+import logo_cursos from "../../assets/logo_cursos.png"
+import student from "../../assets/student.png"
 import Footer from "../../components/Footer";
 
 export const Home = () => {

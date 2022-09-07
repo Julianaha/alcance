@@ -65,3 +65,62 @@
   padding: 15px;
   margin: 1rem;
 }
+
+.courses {
+  background-color: #01114a;
+  height: 173vh;
+}
+
+.contentCourse {
+  text-align: center;
+  padding: 5%;
+}
+
+.textCourse {
+  font-family: "Inter";
+  font-style: normal;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 40px;
+  color: #fff;
+  padding: 5%;
+}
+.flexCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+}
+
+.studentCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-self: baseline;
+  gap: 10%;
+}
+
+.imgStudent {
+  padding-top: 5%;
+  background-image: cover;
+}
+
+.btnStudent {
+  width: 419px;
+  height: 72px;
+  padding: 10px;
+  margin-top: 20%;
+  background: #00beb9;
+  border-radius: 10px;
+  border: none;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #01114a;
+}
