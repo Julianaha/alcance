@@ -12,13 +12,13 @@ import style from "./Home.module.css";
 import Footer from "../../components/Footer";
 
 export const Home = () => {
-  const [cursos, setCursos] = useState([]);
+  // const [cursos, setCursos] = useState([]);
 
-  useEffect(() => {
-    apiAlcance.get(`/cursos`).then((res) => {
-      setCursos(res.data);
-    });
-  }, []);
+  //useEffect(() => {
+  //apiAlcance.get(`/cursos`).then((res) => {
+  //setCursos(res.data);
+  //});
+  //}, []);
 
   return (
     <>
@@ -73,15 +73,27 @@ export const Home = () => {
             </div>
           </div>
         </section>
-        <div className={styles.cardConteiner}>
-          {cursos.map((curso) => (
-            <Card
-              key={curso.id}
-              nome={curso.nome}
-              image={curso.image}
-              descricao={curso.descricao}
-            />
-          ))}
+        <div className={style.courses}>
+          <div className={style.contentCourse}>
+            <img src={logo_cursos} />
+            <p className={style.textCourse}>
+              Nossa formação abrem as portas para a profissão que você escolher.
+              São indicados para quem quer ser um profissional capacitado na
+              prática, com foco direto ao mercado de trabalho, garantindo
+              formação para atividades e setores que estão em alta.
+            </p>
+            <div className={style.flexCard}>
+              <Card />
+              <Card />
+              <Card />
+            </div>
+            <div className={style.studentCard}>
+              <img src={student} className={style.imgStudent} />
+              <button className={style.btnStudent}>
+                conheça todos os nossos cursos
+              </button>
+            </div>
+          </div>
         </div>
         <Register />
       </main>
