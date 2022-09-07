@@ -9,17 +9,18 @@ import carrossel from "../../assets/carrossel.png";
 import logo_oferecemos from "../../assets/logo_oferecemos.png";
 import logo from "../../assets/logo.png";
 import style from "./Home.module.css";
-import logo_cursos from "../../assets/logo_cursos.png"
-import student from "../../assets/student.png"
+import logo_cursos from "../../assets/logo_cursos.png";
+import student from "../../assets/student.png";
+import matricula from "../../assets/matricula.png";
 import Footer from "../../components/Footer";
 
 export const Home = () => {
-   const [cursos, setCursos] = useState([]);
+  const [cursos, setCursos] = useState([]);
 
   useEffect(() => {
-  apiAlcance.get(`/cursos`).then((res) => {
-  setCursos(res.data);
-  });
+    apiAlcance.get(`/cursos`).then((res) => {
+      setCursos(res.data);
+    });
   }, []);
 
   return (
@@ -85,14 +86,14 @@ export const Home = () => {
               formação para atividades e setores que estão em alta.
             </p>
             <div className={style.flexCard}>
-            {cursos.map(curso => (
-            <Card
-              key={curso.id}
-              nome={curso.nome}
-              image={curso.image}
-              descricao={curso.descricao}
-            />
-          ))}
+              {cursos.map((curso) => (
+                <Card
+                  key={curso.id}
+                  nome={curso.nome}
+                  image={curso.image}
+                  descricao={curso.descricao}
+                />
+              ))}
             </div>
             <div className={style.studentCard}>
               <img src={student} className={style.imgStudent} />
@@ -102,7 +103,10 @@ export const Home = () => {
             </div>
           </div>
         </div>
-        <Register />
+        <div className={style.register}>
+          <img src={matricula} className={style.registry} />
+          <Register />
+        </div>
       </main>
       <Footer />
     </>

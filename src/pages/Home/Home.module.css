@@ -124,3 +124,12 @@
   text-transform: uppercase;
   color: #01114a;
 }
+
+.register {
+  background: linear-gradient(179.68deg, #01114a 0.27%, #00beb9 44.39%);
+  text-align: center;
+}
+
+.registry {
+  padding-top: 15%;
+}
