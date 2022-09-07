@@ -1,8 +1,12 @@
 import styles from "./Register.module.css";
 import { apiAlcance } from "../../service/Service.js";
 import { useState } from "react";
+import { Success, Incorrect } from "../../Util/Util";
+import { useNavigate } from "react-router-dom";
 
-function Register() {
+export const Register = () => {
+  const nav = useNavigate();
+
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
@@ -10,15 +14,23 @@ function Register() {
   const [unidade, setUnidade] = useState("");
   const [curso, setCurso] = useState("");
 
-  const submitForme = (nome, email, telefone, senha, unidade, curso) => {
-    apiAlcance.post(`/alunos`, {
-      nome,
-      email,
-      telefone,
-      unidade,
-      curso,
-      senha
-    });
+  const submitForme = (nome, email, telefone, unidade, curso, senha) => {
+    apiAlcance
+      .post(`/alunos`, {
+        nome,
+        email,
+        telefone,
+        unidade,
+        curso,
+        senha,
+      })
+      .then(() => {
+        Success();
+        nav("/login");
+      })
+      .catch(() => {
+        Incorrect();
+      });
   };
 
   return (
@@ -39,7 +51,6 @@ function Register() {
                 name="username"
                 className={styles.user}
                 onChange={(e) => {
-                  //console.log(nome)
                   setNome(e.target.value);
                 }}
               />
@@ -54,7 +65,6 @@ function Register() {
                 name="usermail"
                 className={styles.user}
                 onChange={(e) => {
-                  //console.log(email)
                   setEmail(e.target.value);
                 }}
               />
@@ -73,7 +83,6 @@ function Register() {
                 placeholder="(00) 00000-0000"
                 className={styles.input}
                 onChange={(e) => {
-                  //console.log(telefone)
                   setTelefone(e.target.value);
                 }}
               />
@@ -91,8 +100,7 @@ function Register() {
                 onChange={(e) => {
                   setSenha(e.target.value);
                 }}
-              >
-              </input>
+              ></input>
             </p>
             <p className={styles.col}>
               <label htmlFor="unit">
@@ -104,7 +112,6 @@ function Register() {
                 required
                 className={styles.unidade}
                 onChange={(e) => {
-                  //console.log(unidade)
                   setUnidade(e.target.value);
                 }}
               >
@@ -129,7 +136,6 @@ function Register() {
                 required
                 className={styles.input_course}
                 onChange={(e) => {
-                  //console.log(curso)
                   setCurso(e.target.value);
                 }}
               >
@@ -155,21 +161,16 @@ function Register() {
             <div className={styles.privacy}>
               <input type="checkbox" id="privacy" name="privacy" />
               <label htmlFor="privacy">
-                Declaro que li e concordo com a política de privacidade, bem
-                como com o tratamento dos meus dados para fins de prospecção dos
-                serviços educacionais prestados pela Avance.
+                Declaro que li e concordo com a<b> política de privacidade</b>,
+                bem como com o tratamento dos meus dados para fins de prospecção
+                dos serviços educacionais prestados pela Avance.
               </label>
             </div>
             <button
               className={styles.button}
               onClick={(e) => {
                 e.preventDefault();
-                submitForme(nome, email, telefone, senha, unidade, curso);
-                console.log(
-                  `Dados enviados : ${
-                    (nome, email, telefone, senha, unidade, curso)
-                  }`
-                );
+                submitForme(nome, email, telefone, unidade, curso, senha);
               }}
             >
               Enviar
@@ -179,6 +180,4 @@ function Register() {
       </form>
     </div>
   );
-}
-
-export default Register;
+};
