@@ -70,11 +70,10 @@ function Footer() {
             <h4 className={styles.paragraphFirst}>
               Siga nossas redes sociais
             </h4>
-          </column>
 
-          <div className={styles.icons}>
-
-            <ul>
+            <div className={styles.icons}>
+      
+            <ul classname={styles.icons2}>
               <li>
               <TiSocialYoutubeCircular size={35} />
               <TiSocialInstagram size={30} />
@@ -84,6 +83,8 @@ function Footer() {
               </li>
             </ul>
           </div>
+           
+          </column>
         </row>
       </container>
 
