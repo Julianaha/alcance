@@ -14,13 +14,13 @@ import student from "../../assets/student.png"
 import Footer from "../../components/Footer";
 
 export const Home = () => {
-  // const [cursos, setCursos] = useState([]);
+   const [cursos, setCursos] = useState([]);
 
-  //useEffect(() => {
-  //apiAlcance.get(`/cursos`).then((res) => {
-  //setCursos(res.data);
-  //});
-  //}, []);
+  useEffect(() => {
+  apiAlcance.get(`/cursos`).then((res) => {
+  setCursos(res.data);
+  });
+  }, []);
 
   return (
     <>
@@ -85,9 +85,14 @@ export const Home = () => {
               formação para atividades e setores que estão em alta.
             </p>
             <div className={style.flexCard}>
-              <Card />
-              <Card />
-              <Card />
+            {cursos.map(curso => (
+            <Card
+              key={curso.id}
+              nome={curso.nome}
+              image={curso.image}
+              descricao={curso.descricao}
+            />
+          ))}
             </div>
             <div className={style.studentCard}>
               <img src={student} className={style.imgStudent} />
