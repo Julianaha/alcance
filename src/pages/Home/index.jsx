@@ -108,9 +108,7 @@ export const Home = () => {
         </div>
         <div className={style.register}>
           <img src={matricula} className={style.registry} />
-          <Routes>
-            <Route path="cad" element={<Register />} />
-          </Routes>
+            <Register />
         </div>
       </main>
       <Footer />
