@@ -10,9 +10,8 @@ import Swal from "sweetalert2";
 
 export const User = () => {
   const { aluno } = useContext(context);
-  console.log(aluno)
-  const navPut = useNavigate();
-  const navDelete = useNavigate();
+  
+  const navegate = useNavigate();
 
   const [nome, setNome] = useState(aluno.nome);
   const [email, setEmail] = useState(aluno.email);
@@ -21,20 +20,20 @@ export const User = () => {
   const [unidade, setUnidade] = useState(aluno.unidade);
   const [curso, setCurso] = useState(aluno.curso);
 
-  const [cep, setCep] = useState()
-  
+//  const [cep, setCep] = useState()
+  //const [enereco, setEndereco] = useState() 
 
   const AlcanceDelete = (id) => {
     apiAlcance.delete(`/alunos/${id}`);
-    navDelete("/");
+    navegate("/");
   };
 
-const Cep = () =>{
-  BuscaCep.get(`01001000/json/`)
-  .then(res =>{
-    console.log(res.data)
-  })
-}
+//const Cep = (cep) =>{
+//  BuscaCep.get(`${cep}/json/`)
+//  .then(res =>{
+//    setEndereco(res.data)
+//  })
+//}
 
 const SuccessDelete = () => {
     Swal.fire({
@@ -77,7 +76,6 @@ const SuccessDelete = () => {
       senha,
     }).then(() => {
       Success();
-      //navPut("/login");
     })
     .catch(() => {
       Incorrect();
@@ -190,9 +188,6 @@ const SuccessDelete = () => {
                     id="cep"
                     name="cep"
                     className={styles.userinput}
-                    onChange={(e) => {
-                      setCep(e.target.value);
-                    }}
                   />
                 </p>
                 <p className={styles.userflex}>
@@ -269,7 +264,7 @@ const SuccessDelete = () => {
                     curso,
                     senha
                   );
-                  Cep()
+                 // Cep(cep)
                 }}
               >
                 salvar

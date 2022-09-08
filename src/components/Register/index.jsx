@@ -41,8 +41,8 @@ export const Register = () => {
         </div>
         <section className={styles.form_body}>
           <div className={styles.item1}>
-            <p className={styles.col}>
-              <label htmlFor="name">
+            <p className={styles.col1}>
+              <label htmlFor="name" className={styles.col_label}>
                 <span>Nome Completo*</span>
               </label>
               <input
@@ -55,8 +55,8 @@ export const Register = () => {
                 }}
               />
             </p>
-            <p className={styles.col}>
-              <label htmlFor="mail">
+            <p className={styles.col1}>
+              <label htmlFor="mail" className={styles.col_label}>
                 <span>E-mail*</span>
               </label>
               <input
@@ -71,39 +71,41 @@ export const Register = () => {
             </p>
           </div>
           <div className={styles.item2}>
-            <p className={styles.col}>
-              <label htmlFor="phone">
-                <span>Telefone*</span>
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
-                placeholder="(00) 00000-0000"
-                className={styles.input}
-                onChange={(e) => {
-                  setTelefone(e.target.value);
-                }}
-              />
-            </p>
-            <p className={styles.col}>
-              <label htmlFor="password">
-                <span>Senha*</span>
-              </label>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                required
-                className={styles.input}
-                onChange={(e) => {
-                  setSenha(e.target.value);
-                }}
-              ></input>
-            </p>
-            <p className={styles.col}>
-              <label htmlFor="unit">
+            <div className={styles.col2_2}>
+              <p className={styles.col2}>
+                <label htmlFor="phone" className={styles.col_label2}>
+                  <span>Telefone*</span>
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                  placeholder="(00) 00000-0000"
+                  className={styles.input}
+                  onChange={(e) => {
+                    setTelefone(e.target.value);
+                  }}
+                />
+              </p>
+              <p className={styles.col2}>
+                <label htmlFor="password" className={styles.col_label2}>
+                  <span>Senha*</span>
+                </label>
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  required
+                  className={styles.input}
+                  onChange={(e) => {
+                    setSenha(e.target.value);
+                  }}
+                ></input>
+              </p>
+            </div>
+            <p className={styles.col2}>
+              <label htmlFor="unit" className={styles.col_label}>
                 <span>Unidade*</span>
               </label>
               <select
@@ -155,7 +157,7 @@ export const Register = () => {
                 </option>
               </select>
             </p>
-            <p>*Item Obrigatório</p>
+            <p className={styles.text}>*Item Obrigatório</p>
           </div>
           <div className={styles.form_footer}>
             <div className={styles.privacy}>

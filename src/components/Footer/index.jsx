@@ -6,7 +6,7 @@ import { FaTiktok, FaLinkedin, FaFacebookSquare } from "react-icons/fa";
 
 function Footer() {
   return (
-    <box>
+    <box className={styles.box}>
       <div className={styles.headerFirst}>
         <img
           src={alcanceLogo}

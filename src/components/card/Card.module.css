@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;600&display=swap");
 
 .card {
-  width: 20vw;
-  height: 60vh;
+  width: 30vw;
+  height: 70vh;
   background: linear-gradient(
     200.61deg,
     #35426f 2.4%,
@@ -14,13 +14,13 @@
   flex-direction: column;
   align-items: center;
   justify-content:space-evenly;
+  
 }
 
 .imgCard {
   padding: 10px;
   width: 15vw;
   height: 15vh;
-  border: solide 2px #000;
 }
 
 .titleCard {
@@ -51,9 +51,9 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
-  text-align: center;
   color: #01114a;
   padding: 20px;
+  text-align:justify;
 }
 
 .btnCard {
