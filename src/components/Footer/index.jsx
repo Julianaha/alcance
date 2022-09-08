@@ -43,7 +43,7 @@ function Footer() {
           </column>
 
           <column className={styles.collumn3}>
-            <h4 className={styles.paragraphFirst}>
+            <h4 className={styles.paragraphcursos}>
               Cursos Profissionalizantes
             </h4>
             <h4 className={styles.paragraph6}>Área de Tecnologia</h4>
@@ -55,7 +55,7 @@ function Footer() {
           </column>
 
           <column className={styles.collumn4}>
-            <h4 className={styles.paragraphFirst}>Unidades</h4>
+            <h4 className={styles.paragraphunidades}>Unidades</h4>
             <h4 className={styles.paragraph8}>Unidade São Paulo</h4>
             <h4 className={styles.paragraph9}>Unidade Rio de Janeiro</h4>
             <h4 className={styles.paragraph10}>Unidade Santa Catarina</h4>
@@ -67,7 +67,7 @@ function Footer() {
           </column>
 
           <column className={styles.collumn5}>
-            <h4 className={styles.paragraphFirst}>
+            <h4 className={styles.paragraphultimo}>
               Siga nossas redes sociais
             </h4>
 
