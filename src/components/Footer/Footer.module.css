@@ -45,7 +45,7 @@
   width: 100%;
   padding: 10px;
   font-family: "Inter", sans-serif;
-  margin: 16px;
+  margin: 8px;
 }
 
 .btnSite {
@@ -58,7 +58,7 @@
   width: 100%;
   padding: 10px;
   font-family: "Inter", sans-serif;
-  margin: 16px;
+  margin: 8px;
 }
 
 .paragraphFirst {
@@ -66,8 +66,36 @@
   font-size: 15px;
   font-family: "Inter", sans-serif;
   text-align: center;
+
+}
+
+.paragraphcursos {
+  color: #fff;
+  font-size: 15px;
+  font-family: "Inter", sans-serif;
+  text-align: center;
   margin-bottom: 10px;
-  padding: 30px;
+
+}
+
+.paragraphunidades {
+  color: #fff;
+  font-size: 15px;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  margin-bottom: 5px;
+  padding: 28px;
+
+}
+
+.paragraphultimo {
+  color: #fff;
+  font-size: 15px;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  margin-bottom: 5px;
+  padding: 45px;
+
 }
 
 .paragraphTwo {
@@ -176,7 +204,8 @@
   font-family: "Inter", sans-serif;
   text-align: center;
   margin-bottom: 10px;
-  margin: 16px;
+  margin: 10px;
+  
 }
 
 .paragraph9 {
@@ -184,8 +213,8 @@
   font-size: 13px;
   font-family: "Inter", sans-serif;
   text-align: center;
-  margin-bottom: 10px;
-  margin: 16px;
+  margin-bottom: 5px;
+  margin: 10px;
 }
 
 .paragraph10 {
@@ -193,8 +222,8 @@
   font-size: 13px;
   font-family: "Inter", sans-serif;
   text-align: center;
-  margin-bottom: 10px;
-  margin: 16px;
+  margin-bottom: 5px;
+  margin: 10px;
 }
 
 .paragraph11 {
@@ -202,8 +231,8 @@
   font-size: 13px;
   font-family: "Inter", sans-serif;
   text-align: center;
-  margin-bottom: 10px;
-  margin: 16px;
+  margin-bottom: 5px;
+  margin: 10px;
 }
 
 .barra4 {
@@ -241,12 +270,14 @@
   width: 6em;
   gap: 10px;
   margin: auto 0;
+  
 
 }
 
 .icons2 {
  display: flex;
- border: #7cdddb;
+ text-align: center;
+
 }
 
 
