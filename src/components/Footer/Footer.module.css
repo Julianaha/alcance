@@ -2,21 +2,21 @@
   background-color: #7cdddb;
   margin: auto 0;
   display: grid;
-  gap: 15px;
-  padding: 20px;
+  gap: 10px;
+  padding: 10px;  
 }
 
 .imgLogo {
-  width: 13%;
+  width: 10%;
 }
 
 .container {
+  height: 40vh;
   background-color: #35426f;
   display: flex;
   margin: auto 0;
   flex-direction: column;
   justify-content: center;
- 
   
 }
 
@@ -59,6 +59,7 @@
   padding: 10px;
   font-family: "Inter", sans-serif;
   margin: 8px;
+ 
 }
 
 .paragraphFirst {
@@ -244,16 +245,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0px;
 }
 
 .rodape {
   background-color: #f26b1d;
-  width: 100%;
+  width: 98.9vw;
   display: flex;
-  padding: 0px;
-  border-radius: 10px;
+  margin: auto 0;
+  border-radius: 10px 10px 0px 0px;
   justify-content: center;
+  align-items: center;
+  
 }
 
 .paragraph0 {
@@ -261,25 +263,14 @@
   width: 10%;
   display: flex;
   padding: 20px;
+  
 }
 
 .icons  {
   display: flex;
   color: #f26b1d;
   flex-wrap: wrap;
-  width: 6em;
-  gap: 10px;
+  justify-content: flex-start;
+  width: 70%;
   margin: auto 0;
-  
-
 }
-
-.icons2 {
- display: flex;
- text-align: center;
-
-}
-
-
-
-
