@@ -1,18 +1,21 @@
-import { Register } from "../../components/Register";
-import Header from "../../components/Header";
 import React, { useState, useEffect } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import { Register } from "../../components/Register";
+import { Header } from "../../components/Header";
 import { Card } from "../../components/card/Card";
+import { Footer } from "../../components/Footer";
+
 import { apiAlcance } from "../../service/Service";
-import styles from "../../components/card/Card.module.css";
+
 import banner from "../../assets/banner_central.png";
 import carrossel from "../../assets/carrossel.png";
 import logo_oferecemos from "../../assets/logo_oferecemos.png";
-import logo from "../../assets/logo.png";
-import style from "./Home.module.css";
 import logo_cursos from "../../assets/logo_cursos.png";
 import student from "../../assets/student.png";
 import matricula from "../../assets/matricula.png";
-import Footer from "../../components/Footer";
+
+import style from "./Home.module.css";
 
 export const Home = () => {
   const [cursos, setCursos] = useState([]);
@@ -105,7 +108,9 @@ export const Home = () => {
         </div>
         <div className={style.register}>
           <img src={matricula} className={style.registry} />
-          <Register />
+          <Routes>
+            <Route path="cad" element={<Register />} />
+          </Routes>
         </div>
       </main>
       <Footer />

@@ -4,32 +4,29 @@
   display: flex;
   width: 95vw;
   height: 100vh;
-  margin: 0 auto ;
+  margin: 0 auto;
   justify-content: center;
   align-items: center;
   font-family: "Poppins", sans-serif;
   color: #fff;
- 
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  justify-content:flex-start;
+  justify-content: flex-start;
   align-items: center;
-  background-color: #35426F;
+  background-color: #35426f;
   width: 95vw;
   height: 100vh;
   border-radius: 15px;
- 
 }
 
 .form_title {
-  background-color: #F26B1D;
+  background-color: #f26b1d;
   text-align: center;
   width: 100%;
   border-radius: 15px 15px 0 0;
-  
 }
 
 .form_title h1 {
@@ -47,8 +44,7 @@
   width: 100%;
   align-items: center;
 }
-.col1{
-  
+.col1 {
   height: 10vh;
   width: 100%;
   display: flex;
@@ -80,7 +76,6 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
- 
 }
 .col2_2 {
   height: 20vh;
@@ -91,8 +86,6 @@
   margin-bottom: 10px;
 }
 
-
-
 .col_label {
   width: 84%;
   display: flex;
@@ -100,12 +93,11 @@
   align-items: flex-end;
 }
 
-.col_label2{
+.col_label2 {
   width: 75%;
   display: flex;
   margin-left: 5px;
   align-items: flex-end;
-  
 }
 
 .input {
@@ -149,9 +141,8 @@
   padding: 15px;
   border: none;
   border-radius: 10px;
-  
 }
-.form_body{
+.form_body {
   margin-top: 15px;
   width: 95%;
   height: 80vh;
@@ -160,7 +151,7 @@
   justify-content: center;
 }
 
-.text{
+.text {
   padding: 10px;
   width: 95%;
   display: flex;
@@ -176,14 +167,13 @@
 
 .privacy {
   width: 50vw;
-  
 }
 
 .button {
   font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
-  background-color: #00BEB9;
+  background-color: #00beb9;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -196,9 +186,8 @@ input,
 button,
 select {
   cursor: pointer;
-  
 }
 
-b{
-  color: #FD912D;
+b {
+  color: #fd912d;
 }

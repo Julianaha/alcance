@@ -3,7 +3,7 @@
   margin: auto 0;
   display: grid;
   gap: 10px;
-  padding: 10px;  
+  padding: 10px;
 }
 
 .imgLogo {
@@ -17,7 +17,6 @@
   margin: auto 0;
   flex-direction: column;
   justify-content: center;
-  
 }
 
 .row {
@@ -59,7 +58,6 @@
   padding: 10px;
   font-family: "Inter", sans-serif;
   margin: 8px;
- 
 }
 
 .paragraphFirst {
@@ -67,7 +65,6 @@
   font-size: 15px;
   font-family: "Inter", sans-serif;
   text-align: center;
-
 }
 
 .paragraphcursos {
@@ -76,7 +73,6 @@
   font-family: "Inter", sans-serif;
   text-align: center;
   margin-bottom: 10px;
-
 }
 
 .paragraphunidades {
@@ -86,7 +82,6 @@
   text-align: center;
   margin-bottom: 5px;
   padding: 28px;
-
 }
 
 .paragraphultimo {
@@ -96,7 +91,6 @@
   text-align: center;
   margin-bottom: 5px;
   padding: 45px;
-
 }
 
 .paragraphTwo {
@@ -206,7 +200,6 @@
   text-align: center;
   margin-bottom: 10px;
   margin: 10px;
-  
 }
 
 .paragraph9 {
@@ -255,7 +248,6 @@
   border-radius: 10px 10px 0px 0px;
   justify-content: center;
   align-items: center;
-  
 }
 
 .paragraph0 {
@@ -263,10 +255,9 @@
   width: 10%;
   display: flex;
   padding: 20px;
-  
 }
 
-.icons  {
+.icons {
   display: flex;
   color: #f26b1d;
   flex-wrap: wrap;

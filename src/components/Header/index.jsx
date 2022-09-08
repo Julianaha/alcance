@@ -1,13 +1,18 @@
-import styles from "./Header.module.css";
-import alcanceLogo from "../../assets/alcance_logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-function Header() {
+import alcanceLogo from "../../assets/alcance_logo.png";
+
+import styles from "./Header.module.css";
+
+export const Header = () => {
+  const nav = useNavigate();
   return (
     <header>
       <div className={styles.headerFirst}>
         <p className={styles.paragraphFirst}>Ainda não é aluno?</p>
-        <button className={styles.btnFirst}>Inscreva-se pelo site</button>
+        <button className={styles.btnFirst} onClick={() => nav("cad")}>
+          Inscreva-se pelo site
+        </button>
       </div>
       <nav className={styles.nav}>
         <img
@@ -20,11 +25,13 @@ function Header() {
           <p>Cursos</p>
           <p>Unidades</p>
           <p>Empresas Parceiras</p>
-          <Link to="/login"><button className={styles.btnNav}>Login</button></Link>
+          <Link to="/login">
+            <button className={styles.btnNav}>Login</button>
+          </Link>
         </span>
       </nav>
     </header>
   );
-}
+};
 
 export default Header;

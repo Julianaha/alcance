@@ -2,7 +2,7 @@ import Swal from "sweetalert2";
 
 export const Success = () => {
   Swal.fire({
-    position: 'top-center',
+    position: "top-center",
     title: "Sucesso!",
     text: "Solicitação Concluída",
     icon: "success",
