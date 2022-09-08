@@ -24,7 +24,7 @@ export const Login = () => {
     apiAlcance
       .get(`/alunos/email/${email}`)
       .then((res) => {
-        console.log(res.data)
+        
         setAluno(res.data);
         handleSubmit(res.data);
         res.data.email === email && res.data.senha === senha

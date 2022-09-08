@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.construcao{
+    font-family: Poppins;
+    width: 99.5vw;
+    min-height: 99.5vh;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    background-color: #b3b3b3;
+}
+.conteiner{
+    width: 50vw;
+    height: 30vw;
+    display:flex;
+    align-items: center;
+    justify-content: center;  
+    background-image: linear-gradient(89.93deg, #00beb9 0.05%, #35426f 99.94%);
+    border-radius: 13px;
+}
+.contagem{
+    width: 50%;
+    height: 20vw;
+    flex-direction: column;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    
+}
+.imgCentral{
+    width: 20%;
+    display:flex;
+    
+}
+.titulo{
+    color: #FFF;
+    text-align: center;
+    padding: 10px;
+    font-size: 28px;
+}
+.timerTexto{
+    padding: 10px;
+    
+    width: 300px;
+    color:#FFF;
+    font-size: 12px;
+    display:flex;
+    align-items:center;
+    flex-direction: row;
+    justify-content:space-between ;
+    
+}
+.timer{
+    width: 300px;
+    color: #4D4C59;
+    font-size: 46px;
+    display:flex;
+    align-items:center;
+    flex-direction: row;
+    justify-content:space-between ;
+}
+.horas{
+    width: 300px;
+    justify-content:space-between ;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+   
+}
+
+.bnt{
+    background-color: #00beb9;
+    text-transform: uppercase;
+    padding: 15px;
+    border-radius: 13px;
+    border: 1px solid #fff;
+    margin-top: 2rem;
+    cursor: pointer;
+    color: #ffffff;
+    font-weight: 700;
+   
+}
+.texto{
+    color:#FFF;;
+    font-size: 16px;
+    padding: 15px;
+}
+.imgCentral img{
+    max-width:1400px;
+    max-height:250px;
+    width: auto;
+    height: auto;
+    padding: 15px;
+}
+
+.img {
+    text-align: center;
+    padding-top: 7px;
+  }
+  
+  .footer {
+    background-color: #35426f;
+  }
+
+@media  (max-width: 650px){
+    .conteiner{
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content:space-between; 
+    } 
+    .contagem{
+        width: 80%;
+        
+    }
+    .imgCentral{
+        display: none;   
+    }
+
+}

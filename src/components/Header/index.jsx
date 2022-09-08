@@ -1,15 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 import alcanceLogo from "../../assets/alcance_logo.png";
 
 import styles from "./Header.module.css";
 
 export const Header = () => {
+  
   return (
     <header>
       <div className={styles.headerFirst}>
         <p className={styles.paragraphFirst}>Ainda não é aluno?</p>
-        <button className={styles.btnFirst} onClick={() => {}}>
+        
+        <button className={styles.btnFirst} >
           Inscreva-se pelo site
         </button>
       </div>
@@ -22,8 +24,8 @@ export const Header = () => {
         <span className={styles.options}>
           <p>Quem Somos</p>
           <p>Cursos</p>
-          <p>Unidades</p>
-          <p>Empresas Parceiras</p>
+          <Link to="/construcao"><p>Unidades</p></Link>
+          <Link to="/construcao"><p>Empresas Parceiras</p></Link>
           <Link to="/login">
             <button className={styles.btnNav}>Login</button>
           </Link>

@@ -5,9 +5,10 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  align-items: baseline;
+  align-items: center;
   gap: 15px;
   padding: 20px;
+  font-weight: 400;
 }
 
 .paragraphFirst {
@@ -48,8 +49,9 @@
   gap: 20px;
   font-size: 18px;
   font-family: "Inter", sans-serif;
-}
-
+  color: #01114a;
+  }
+ 
 .btnNav {
   background-color: #7cdddb;
   color: #01114a;
