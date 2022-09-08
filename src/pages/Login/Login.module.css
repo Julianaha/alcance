@@ -47,7 +47,7 @@
   width: 40%;
 }
 
-.loginStudent{
+.loginStudent {
   padding: 20px;
   color: #fff;
 }
@@ -70,26 +70,26 @@
 
 .user label {
   font-size: 14px;
-  color: #F2F3F4;
+  color: #f2f3f4;
   font-weight: 600;
 }
 
 .button {
-  background-color: #00BEB9;
+  background-color: #00beb9;
   text-transform: uppercase;
   padding: 10px;
   border-radius: 13px;
   border: 1px solid #fff;
   margin-top: 2rem;
   cursor: pointer;
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: 700;
   font-family: "Poppins", sans-serif;
 }
 
 button:hover {
-color: #00BEB9;
-transition-duration: 1s;
+  color: #00beb9;
+  transition-duration: 1s;
 }
 
 .register {
@@ -97,18 +97,18 @@ transition-duration: 1s;
   cursor: pointer;
   font-family: "Poppins", sans-serif;
   font-size: 12px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 a:link,
 a:visited {
   text-decoration: none;
-  color:#FFFFFF;
+  color: #ffffff;
 }
 
 a:hover {
   text-decoration: underline;
-  color: #F26B1D;
+  color: #f26b1d;
 }
 
 .img {
@@ -117,5 +117,5 @@ a:hover {
 }
 
 footer {
-  background-color: #35426F;
+  background-color: #35426f;
 }

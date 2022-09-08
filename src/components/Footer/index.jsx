@@ -1,10 +1,12 @@
-import styles from "./Footer.module.css";
-import alcanceLogo from "../../assets/alcance_logo.png";
 import { Link } from "react-router-dom";
 import { TiSocialYoutubeCircular, TiSocialInstagram } from "react-icons/ti";
 import { FaTiktok, FaLinkedin, FaFacebookSquare } from "react-icons/fa";
 
-function Footer() {
+import alcanceLogo from "../../assets/alcance_logo.png";
+
+import styles from "./Footer.module.css";
+
+export const Footer = () => {
   return (
     <box className={styles.box}>
       <div className={styles.headerFirst}>
@@ -72,18 +74,16 @@ function Footer() {
             </h4>
 
             <div className={styles.icons}>
-      
-            <ul classname={styles.icons2}>
-              <li>
-              <TiSocialYoutubeCircular size={35} />
-              <TiSocialInstagram size={30} />
-              <FaTiktok size={25} />
-              <FaLinkedin size={30} />
-              <FaFacebookSquare size={30} />
-              </li>
-            </ul>
-          </div>
-           
+              <ul classname={styles.icons2}>
+                <li>
+                  <TiSocialYoutubeCircular size={35} />
+                  <TiSocialInstagram size={30} />
+                  <FaTiktok size={25} />
+                  <FaLinkedin size={30} />
+                  <FaFacebookSquare size={30} />
+                </li>
+              </ul>
+            </div>
           </column>
         </row>
       </container>
@@ -97,6 +97,6 @@ function Footer() {
       </footer>
     </box>
   );
-}
+};
 
 export default Footer;

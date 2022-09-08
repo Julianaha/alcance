@@ -1,41 +1,36 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useContext, useState, useEffect } from "react";
-import user from "../../assets/user.png";
-import styles from "./User.module.css";
-import { context } from "../../Contexts/Contexts";
-import { apiAlcance, BuscaCep } from "../../service/Service";
-import { Success } from "../../Util/Util";
-
+import { useContext, useState } from "react";
 import Swal from "sweetalert2";
+
+import { context } from "../../Contexts/Contexts";
+import { Success } from "../../Util/Util";
+import { apiAlcance } from "../../service/Service";
+
+import user from "../../assets/user.png";
+
+import styles from "./User.module.css";
 
 export const User = () => {
   const { aluno } = useContext(context);
-  
+
   const navegate = useNavigate();
 
   const [nome, setNome] = useState(aluno.nome);
   const [email, setEmail] = useState(aluno.email);
   const [telefone, setTelefone] = useState(aluno.telefone);
-  const [senha, setSenha] = useState(aluno._senha);
+  const [senha, setSenha] = useState(aluno.senha);
   const [unidade, setUnidade] = useState(aluno.unidade);
   const [curso, setCurso] = useState(aluno.curso);
-
-//  const [cep, setCep] = useState()
-  //const [enereco, setEndereco] = useState() 
+  const [cep, setCep] = useState(aluno.cep);
+  const [endereco, setEndereco] = useState(aluno.endereco);
+  const [cidade, setCidade] = useState(aluno.cidade);
 
   const AlcanceDelete = (id) => {
     apiAlcance.delete(`/alunos/${id}`);
     navegate("/");
   };
 
-//const Cep = (cep) =>{
-//  BuscaCep.get(`${cep}/json/`)
-//  .then(res =>{
-//    setEndereco(res.data)
-//  })
-//}
-
-const SuccessDelete = () => {
+  const SuccessDelete = () => {
     Swal.fire({
       title: "Excluir...",
       text: "Tem certeza que quer deletar esse usuario?",
@@ -47,17 +42,18 @@ const SuccessDelete = () => {
       cancelButtonText: "Não",
       reverseButtons: true,
     }).then((result) => {
-    if (result.value) {
-      Swal.fire({
-        title: "Excluindo...",
-        icon: 'success',
-        position: 'top-center',
-        showConfirmButton: false,
-        timer: 1500,
-        "Excluido": AlcanceDelete(aluno.id)}) 
-    }
-  });
-}
+      if (result.value) {
+        Swal.fire({
+          title: "Excluindo...",
+          icon: "success",
+          position: "top-center",
+          showConfirmButton: false,
+          timer: 1500,
+          Excluido: AlcanceDelete(aluno.id),
+        });
+      }
+    });
+  };
   const AlcanceAtualiza = (
     id,
     nome,
@@ -65,21 +61,29 @@ const SuccessDelete = () => {
     telefone,
     unidade,
     curso,
-    senha
+    senha,
+    cep,
+    endereco,
+    cidade
   ) => {
-    apiAlcance.put(`/alunos/${id}`, {
-      nome,
-      email,
-      telefone,
-      unidade,
-      curso,
-      senha,
-    }).then(() => {
-      Success();
-    })
-    .catch(() => {
-      Incorrect();
-    });
+    apiAlcance
+      .put(`/alunos/${id}`, {
+        nome,
+        email,
+        telefone,
+        unidade,
+        curso,
+        senha,
+        cep,
+        endereco,
+        cidade,
+      })
+      .then(() => {
+        Success();
+      })
+      .catch(() => {
+        Incorrect();
+      });
   };
 
   return (
@@ -93,7 +97,7 @@ const SuccessDelete = () => {
               <button
                 className={styles.btndelete}
                 onClick={() => {
-                  SuccessDelete()
+                  SuccessDelete();
                 }}
               >
                 excluir
@@ -169,7 +173,11 @@ const SuccessDelete = () => {
                     type="text"
                     id="city"
                     name="city"
+                    value={cidade}
                     className={styles.userinput}
+                    onChange={(e) => {
+                      setCidade(e.target.value);
+                    }}
                   />
                 </p>
                 <p className={styles.userflex}>
@@ -178,7 +186,11 @@ const SuccessDelete = () => {
                     type="text"
                     id="adress"
                     name="adress"
+                    value={endereco}
                     className={styles.userinput}
+                    onChange={(e) => {
+                      setEndereco(e.target.value);
+                    }}
                   />
                 </p>
                 <p className={styles.userflex}>
@@ -187,7 +199,11 @@ const SuccessDelete = () => {
                     type="text"
                     id="cep"
                     name="cep"
+                    value={cep}
                     className={styles.userinput}
+                    onChange={(e) => {
+                      setCep(e.target.value);
+                    }}
                   />
                 </p>
                 <p className={styles.userflex}>
@@ -262,9 +278,11 @@ const SuccessDelete = () => {
                     telefone,
                     unidade,
                     curso,
-                    senha
+                    senha,
+                    cep,
+                    endereco,
+                    cidade
                   );
-                 // Cep(cep)
                 }}
               >
                 salvar
