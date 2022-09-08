@@ -26,6 +26,9 @@ export const Register = () => {
         unidade,
         curso,
         senha,
+        cep:"",
+        endereco:"",
+        cidade:"",
       })
       .then(() => {
         Success();

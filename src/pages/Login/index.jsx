@@ -1,12 +1,15 @@
 import { FaAngleLeft } from "react-icons/fa";
-import login from "../../assets/login.png";
-import alcance from "../../assets/footerAlcance.png";
-import styles from "./Login.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
+
 import { apiAlcance } from "../../service/Service";
-import { Incorrect, Success } from "../../Util/Util";
+import { Incorrect } from "../../Util/Util";
 import { context } from "../../Contexts/Contexts";
+
+import login from "../../assets/login.png";
+import alcance from "../../assets/footerAlcance.png";
+
+import styles from "./Login.module.css";
 
 export const Login = () => {
   const { submit } = useContext(context);
@@ -21,9 +24,10 @@ export const Login = () => {
     apiAlcance
       .get(`/alunos/email/${email}`)
       .then((res) => {
+        console.log(res.data)
         setAluno(res.data);
         handleSubmit(res.data);
-        res.data.email === email && res.data._senha === senha
+        res.data.email === email && res.data.senha === senha
           ? navigate("/user")
           : Incorrect();
       })

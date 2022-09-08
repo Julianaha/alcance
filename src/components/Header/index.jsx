@@ -1,16 +1,15 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import alcanceLogo from "../../assets/alcance_logo.png";
 
 import styles from "./Header.module.css";
 
 export const Header = () => {
-  const nav = useNavigate();
   return (
     <header>
       <div className={styles.headerFirst}>
         <p className={styles.paragraphFirst}>Ainda não é aluno?</p>
-        <button className={styles.btnFirst} onClick={() => nav("cad")}>
+        <button className={styles.btnFirst} onClick={() => {}}>
           Inscreva-se pelo site
         </button>
       </div>

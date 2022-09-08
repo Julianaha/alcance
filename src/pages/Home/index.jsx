@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { Register } from "../../components/Register";
 import { Header } from "../../components/Header";
@@ -108,7 +107,7 @@ export const Home = () => {
         </div>
         <div className={style.register}>
           <img src={matricula} className={style.registry} />
-            <Register />
+          <Register />
         </div>
       </main>
       <Footer />

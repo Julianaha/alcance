@@ -1,9 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 
 import { context } from "../../Contexts/Contexts";
 import { Success } from "../../Util/Util";
+import { apiAlcance } from "../../service/Service";
 
 import user from "../../assets/user.png";
 
@@ -17,24 +18,17 @@ export const User = () => {
   const [nome, setNome] = useState(aluno.nome);
   const [email, setEmail] = useState(aluno.email);
   const [telefone, setTelefone] = useState(aluno.telefone);
-  const [senha, setSenha] = useState(aluno._senha);
+  const [senha, setSenha] = useState(aluno.senha);
   const [unidade, setUnidade] = useState(aluno.unidade);
   const [curso, setCurso] = useState(aluno.curso);
-
-  //  const [cep, setCep] = useState()
-  //const [enereco, setEndereco] = useState()
+  const [cep, setCep] = useState(aluno.cep);
+  const [endereco, setEndereco] = useState(aluno.endereco);
+  const [cidade, setCidade] = useState(aluno.cidade);
 
   const AlcanceDelete = (id) => {
     apiAlcance.delete(`/alunos/${id}`);
     navegate("/");
   };
-
-  //const Cep = (cep) =>{
-  //  BuscaCep.get(`${cep}/json/`)
-  //  .then(res =>{
-  //    setEndereco(res.data)
-  //  })
-  //}
 
   const SuccessDelete = () => {
     Swal.fire({
@@ -67,7 +61,10 @@ export const User = () => {
     telefone,
     unidade,
     curso,
-    senha
+    senha,
+    cep,
+    endereco,
+    cidade
   ) => {
     apiAlcance
       .put(`/alunos/${id}`, {
@@ -77,6 +74,9 @@ export const User = () => {
         unidade,
         curso,
         senha,
+        cep,
+        endereco,
+        cidade,
       })
       .then(() => {
         Success();
@@ -173,7 +173,11 @@ export const User = () => {
                     type="text"
                     id="city"
                     name="city"
+                    value={cidade}
                     className={styles.userinput}
+                    onChange={(e) => {
+                      setCidade(e.target.value);
+                    }}
                   />
                 </p>
                 <p className={styles.userflex}>
@@ -182,7 +186,11 @@ export const User = () => {
                     type="text"
                     id="adress"
                     name="adress"
+                    value={endereco}
                     className={styles.userinput}
+                    onChange={(e) => {
+                      setEndereco(e.target.value);
+                    }}
                   />
                 </p>
                 <p className={styles.userflex}>
@@ -191,7 +199,11 @@ export const User = () => {
                     type="text"
                     id="cep"
                     name="cep"
+                    value={cep}
                     className={styles.userinput}
+                    onChange={(e) => {
+                      setCep(e.target.value);
+                    }}
                   />
                 </p>
                 <p className={styles.userflex}>
@@ -266,9 +278,11 @@ export const User = () => {
                     telefone,
                     unidade,
                     curso,
-                    senha
+                    senha,
+                    cep,
+                    endereco,
+                    cidade
                   );
-                  // Cep(cep)
                 }}
               >
                 salvar
