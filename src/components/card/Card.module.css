@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;600&display=swap");
+
+.card {
+  width: 30vw;
+  height: 70vh;
+  background: linear-gradient(
+    200.61deg,
+    #35426f 2.4%,
+    #0d918e 44.26%,
+    #75d8d6 99.23%
+  );
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.imgCard {
+  padding: 10px;
+  width: 15vw;
+  height: 15vh;
+}
+
+.titleCard {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: #ffffff;
+  padding: 5px;
+}
+
+.subtitleCard {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #01114a;
+  padding: 10px;
+}
+
+.textCard {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #01114a;
+  padding: 20px;
+  text-align: justify;
+}
+
+.btnCard {
+  background: #01114a;
+  border: none;
+  border-radius: 20px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  width: 10vw;
+  padding: 10px;
+}

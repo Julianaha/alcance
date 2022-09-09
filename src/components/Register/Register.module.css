@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+.container {
+  display: flex;
+  width: 95vw;
+  height: 100vh;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #35426f;
+  width: 95vw;
+  height: 78vh;
+  border-radius: 15px;
+}
+
+.form_title {
+  background-color: #f26b1d;
+  text-align: center;
+  width: 100%;
+  border-radius: 15px 15px 0 0;
+}
+
+.form_title h1 {
+  display: block;
+  padding: 20px;
+  font-size: 28px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+}
+
+.item1 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+.col1 {
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.col1 > .user {
+  width: 86%;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+}
+
+.item2 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+
+.col2 {
+  height: 20vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.col2_2 {
+  height: 20vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.col_label {
+  width: 84%;
+  display: flex;
+  margin-left: 5px;
+  align-items: flex-end;
+}
+
+.col_label2 {
+  width: 75%;
+  display: flex;
+  margin-left: 5px;
+  align-items: flex-end;
+}
+
+.input {
+  width: 74%;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+}
+
+.unidade {
+  width: 90%;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+}
+
+.item3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.course {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.course > label {
+  width: 92%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.input_course {
+  width: 95%;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+}
+.form_body {
+  margin-top: 15px;
+  width: 95%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text {
+  padding: 10px;
+  width: 95%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.form_footer {
+  margin-top: 4%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.privacy {
+  width: 50vw;
+}
+
+.button {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: #00beb9;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 0.4em #c4c1c118;
+  width: 15%;
+  padding: 10px;
+}
+
+input,
+button,
+select {
+  cursor: pointer;
+}
+
+b {
+  color: #fd912d;
+}
