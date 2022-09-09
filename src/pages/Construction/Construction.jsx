@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
-
-import styles from "./Construcao.module.css";
-import studente from "../../assets/student.png";
-
+import styles from "./Construction.module.css";
+import student from "../../assets/student.png";
 
 export const Construcao = () => {
   const dataFinal = new Date("Sep 15, 2022 22:00:00").getTime();
@@ -52,16 +50,15 @@ export const Construcao = () => {
             </div>
             <div id="final" className={styles.titulo}></div>
           </div>
-          <p className={styles.texto}>
-            Nos somos ALCANCE
-          </p>
-         <Link to="/"> <button className={styles.bnt}>HOME</button></Link>
+          <p className={styles.texto}>Somos a ALCANCE</p>
+          <Link to="/">
+            <button className={styles.bnt}>HOME</button>
+          </Link>
         </div>
         <div className={styles.imgCentral}>
-          <img src={studente} alt="" srcset="" />
+          <img src={student} alt="" srcset="" />
         </div>
       </div>
-      
     </div>
   );
 };

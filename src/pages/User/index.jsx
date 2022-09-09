@@ -1,13 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import Swal from "sweetalert2";
-
 import { context } from "../../Contexts/Contexts";
 import { Success } from "../../Util/Util";
 import { apiAlcance } from "../../service/Service";
-
 import user from "../../assets/user.png";
-
 import styles from "./User.module.css";
 
 export const User = () => {
