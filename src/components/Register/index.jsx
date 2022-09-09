@@ -1,22 +1,17 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { Success, Incorrect } from "../../Util/Util";
-
 import { apiAlcance } from "../../service/Service.js";
-
 import styles from "./Register.module.css";
 
 export const Register = () => {
   const nav = useNavigate();
-
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
   const [senha, setSenha] = useState("");
   const [unidade, setUnidade] = useState("");
   const [curso, setCurso] = useState("");
-
   const submitForme = (nome, email, telefone, unidade, curso, senha) => {
     apiAlcance
       .post(`/alunos`, {
@@ -26,9 +21,9 @@ export const Register = () => {
         unidade,
         curso,
         senha,
-        cep:"",
-        endereco:"",
-        cidade:"",
+        cep: "",
+        endereco: "",
+        cidade: "",
       })
       .then(() => {
         Success();

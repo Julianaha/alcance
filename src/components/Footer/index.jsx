@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import { TiSocialYoutubeCircular, TiSocialInstagram } from "react-icons/ti";
-import { FaTiktok, FaLinkedin, FaFacebookSquare } from "react-icons/fa";
-
+import {
+  FaTiktok,
+  FaLinkedin,
+  FaFacebookSquare,
+  FaWhatsapp,
+} from "react-icons/fa";
 import alcanceLogo from "../../assets/alcance_logo.png";
-
 import styles from "./Footer.module.css";
 
 export const Footer = () => {
@@ -23,7 +26,9 @@ export const Footer = () => {
             <h4 className={styles.paragraphFirst}>Ainda não é aluno?</h4>
             <h4 className={styles.paragraphTwo}>Inscreva-se</h4>
             <Link to="/whats">
-              <button className={styles.btnWhats}>Pelo whats</button>
+              <button className={styles.btnWhats}>
+                <FaWhatsapp /> Pelo whats
+              </button>
             </Link>
             <Link to="/site">
               <button className={styles.btnSite}>Pelo site</button>
@@ -61,7 +66,7 @@ export const Footer = () => {
             <h4 className={styles.paragraph8}>Unidade São Paulo</h4>
             <h4 className={styles.paragraph9}>Unidade Rio de Janeiro</h4>
             <h4 className={styles.paragraph10}>Unidade Santa Catarina</h4>
-            <h4 className={styles.paragraph11}>Unidade Pernanbuco</h4>
+            <h4 className={styles.paragraph11}>Unidade Pernambuco</h4>
           </column>
 
           <column className={styles.collumnmeio}>
@@ -91,7 +96,8 @@ export const Footer = () => {
       <footer>
         <div className={styles.rodape}>
           <p className={styles.paragraph0}>
-            © 2022 Alcance. Todos os direitos reservados.
+            © 2022 Alcance • Todos os direitos reservados • Política de
+            Privacidade
           </p>
         </div>
       </footer>

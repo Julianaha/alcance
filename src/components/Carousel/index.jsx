@@ -1,23 +1,9 @@
 import carrossel from "../../assets/carrossel.png";
+import banner1 from "../../assets/banner_1.png";
+import banner2 from "../../assets/banner_2.png";
 import styles from "./Carousel.module.css";
-import banner from "../../assets/banner_central.png";
-import { useState } from "react";
 
 export const Carousel = () => {
-  const [count, setCount] = useState(1);
-
-  function nextImage() {
-    setCount(count++);
-    if (count > 3) {
-      count = 1;
-    }
-    
-  }
-
-  setInterval(() => {
-    nextImage();
-  }, 2000);
-
   return (
     <div className={styles.slider}>
       <div className={styles.slides}>
@@ -44,10 +30,10 @@ export const Carousel = () => {
           <img src={carrossel} alt="imagem1" className={styles.imgSlide} />
         </div>
         <div className={styles.slide}>
-          <img src={banner} alt="imagem2" className={styles.imgSlide} />
+          <img src={banner1} alt="imagem2" className={styles.imgSlide} />
         </div>
         <div className={styles.slide}>
-          <img src={carrossel} alt="imagem3" className={styles.imgSlide} />
+          <img src={banner2} alt="imagem3" className={styles.imgSlide} />
         </div>
 
         <div className={styles.navigation_auto}>

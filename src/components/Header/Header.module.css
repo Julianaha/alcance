@@ -15,6 +15,7 @@
   color: #fff;
   font-size: 18px;
   font-family: "Inter", sans-serif;
+  font-weight: 600;
 }
 
 .btnFirst {
@@ -25,6 +26,7 @@
   border-radius: 8px;
   padding: 10px;
   font-size: 18px;
+  font-weight: 600;
   font-family: "Inter", sans-serif;
 }
 
@@ -50,8 +52,9 @@
   font-size: 18px;
   font-family: "Inter", sans-serif;
   color: #01114a;
-  }
- 
+  font-weight: 600;
+}
+
 .btnNav {
   background-color: #7cdddb;
   color: #01114a;
@@ -59,5 +62,11 @@
   border-radius: 10px;
   padding: 10px;
   font-size: 18px;
+  font-weight: 600;
   font-family: "Inter", sans-serif;
+}
+
+a:link,
+a:visited {
+  color: #000 !important;
 }

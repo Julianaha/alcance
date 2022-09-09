@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from "react";
-
 import { Register } from "../../components/Register";
 import { Header } from "../../components/Header";
 import { Card } from "../../components/card/Card";
 import { Footer } from "../../components/Footer";
-
 import { apiAlcance } from "../../service/Service";
-
+import { Carousel } from "../../components/Carousel"
 import banner from "../../assets/banner_central.png";
 import carrossel from "../../assets/carrossel.png";
 import logo_oferecemos from "../../assets/logo_oferecemos.png";
 import logo_cursos from "../../assets/logo_cursos.png";
 import student from "../../assets/student.png";
 import matricula from "../../assets/matricula.png";
-
 import style from "./Home.module.css";
 
 export const Home = () => {
@@ -36,7 +33,8 @@ export const Home = () => {
             className={style.imgBanner}
           />
           <div className={style.boxCarrossel}>
-            <img src={carrossel} className={style.carrossel} />
+            {/* <img src={carrossel} className={style.carrossel} /> */}
+            <Carousel/>
           </div>
         </div>
         <section className={style.about}>
@@ -44,7 +42,7 @@ export const Home = () => {
           <div className={style.boxCard}>
             <div className={style.card}>
               <h3 className={style.titleCard}>
-                Conexão do estudante com o trabalho{" "}
+                Conexão do estudante com o trabalho
               </h3>
               <p className={style.textCard}>
                 Nossa meta é a <b>empregabilidade</b> dos nossos alunos no
